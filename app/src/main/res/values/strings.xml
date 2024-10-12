@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FarmaciasWp</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_Usuarios">Usuario</string>
+    <string name="hint_Ingreso">Ingresar</string>
+    <string name="hint_Registro">Registro</string>
+    <string name="desc_imagen_farmacia">Imagen de una farmacia</string>
+
+</resources>
