@@ -12,14 +12,14 @@
         android:layout_width="354dp"
         android:layout_height="66dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="32dp"
         android:autofillHints="username"
         android:ems="10"
         android:hint="@string/hint_Usuarios"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -28,16 +28,16 @@
         android:layout_width="352dp"
         android:layout_height="58dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="32dp"
-        android:ems="10"
         android:autofillHints="password"
+        android:backgroundTint="@color/black"
+        android:ems="10"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
-        android:backgroundTint="@color/black"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
 
@@ -45,10 +45,10 @@
         android:id="@+id/imageView"
         android:layout_width="178dp"
         android:layout_height="164dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:contentDescription="@string/desc_imagen_farmacia"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/farmacia2" />
@@ -91,7 +91,7 @@
         app:layout_constraintHorizontal_bias="0.919"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -99,10 +99,22 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.768" />
+        app:layout_constraintVertical_bias="0.646" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="144dp"
+        android:layout_height="25dp"
+        android:text="Olvido su contraseña?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.402" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
