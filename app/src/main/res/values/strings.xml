@@ -5,5 +5,7 @@
     <string name="hint_Ingreso">Ingresar</string>
     <string name="hint_Registro">Registro</string>
     <string name="desc_imagen_farmacia">Imagen de una farmacia</string>
+    <string name="hint_Next">Next</string>
+    <string name="hint_Olvidar">Olvido su  contraseña?</string>
 
 </resources>
