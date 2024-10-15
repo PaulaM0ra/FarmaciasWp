@@ -25,8 +25,7 @@ public class CarStoreActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Encontrar el botón y establecer el listener para ir a RegisClientActivity
-        Button buttonNext = findViewById(R.id.Button17);  // ID del botón en el layout
+        Button buttonNext = findViewById(R.id.Button17);
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
