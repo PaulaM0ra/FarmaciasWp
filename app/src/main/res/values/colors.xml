@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Colores básicos -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="button_blue">#007BFF</color> <!-- Azul estándar -->
-    <color name="button_text_white">#FFFFFF</color> <!-- Texto blanco -->
 
+    <!-- Colores personalizados -->
+    <color name="button_blue">#0CECF0</color> <!-- Azul personalizado para botones -->
+    <color name="button_text_white">#FFFFFF</color> <!-- Texto blanco para botones -->
+
+    <!-- Colores para el carrito de compras -->
+    <color name="backgroundColor">#FFFFFF</color> <!-- Fondo blanco para la pantalla -->
+    <color name="textPrimary">#2E9D9E</color> <!-- Azul para texto principal -->
+    <color name="textSecondary">#7F8C8D</color> <!-- Color secundario para textos -->
+    <color name="primaryButton">#2E9D9E</color> <!-- Azul para los botones principales -->
+    <color name="buttonBackground">#2E9D9E</color> <!-- Azul para el fondo de los botones -->
 </resources>

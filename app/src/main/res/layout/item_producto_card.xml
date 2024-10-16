@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imgProducto"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:contentDescription="Imagen del producto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/txtNombreComercial"
+        android:scaleType="centerInside"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/txtNombreComercial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nombre Comercial"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/imgProducto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtNombreGenerico"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nombre Genérico"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/txtNombreComercial"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/txtConcentracion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Concentración"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/txtNombreGenerico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/txtPresentacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Presentación"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/txtConcentracion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/txtRegistroInvima"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Registro Invima"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/txtPresentacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/txtLote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Lote"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/txtRegistroInvima"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/txtValor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Valor"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/txtLote"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="4dp" />
+
+    <!-- Botón "Adquirir" -->
+    <Button
+        android:id="@+id/buttonAdquirir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Adquirir"
+        android:background="@android:color/holo_blue_light"
+        app:layout_constraintTop_toBottomOf="@id/txtValor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

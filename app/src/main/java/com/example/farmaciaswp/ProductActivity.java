@@ -4,14 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.google.android.material.floatingactionbutton.FloatingActionButton; // Asegúrate de importar esto
 
 public class ProductActivity extends AppCompatActivity {
 
@@ -27,26 +25,16 @@ public class ProductActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button buttonNext = findViewById(R.id.button13);
+        Button buttonNext = findViewById(R.id.button78);
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Iniciar CarStoreActivity
-                Intent intent = new Intent(ProductActivity.this, CarStoreActivity.class);
+                Intent intent = new Intent(ProductActivity.this, Catalogo_Productos.class);
                 startActivity(intent);
             }
         });
 
-        // Lógica para el FloatingActionButton
-        FloatingActionButton fab = findViewById(R.id.fab_add);
-        LinearLayout formLayout = findViewById(R.id.form_layout);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Mostrar el formulario cuando se hace clic en el FAB
-                formLayout.setVisibility(View.VISIBLE);
-            }
-        });
     }
 }
