@@ -40,15 +40,12 @@ public class Catalogo_Productos extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Crear una lista de productos (puedes obtenerlos de una base de datos)
         listaProductos = new ArrayList<>();
-        cargarProductos(); // Método que llenará la lista con productos
+        cargarProductos();
 
-        // Configurar el adaptador
         productoAdapter = new ProductoAdapter(listaProductos);
         recyclerView.setAdapter(productoAdapter);
 
-        // Botón "CRUD FarmaciaWP" redirige a ProductActivity
         Button buttonCRUD = findViewById(R.id.button5);
         buttonCRUD.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +55,7 @@ public class Catalogo_Productos extends AppCompatActivity {
             }
         });
 
-        // Botón "Agregar al Carrito" redirige a CarStoreActivity
+
         Button buttonCarrito = findViewById(R.id.button3);
         buttonCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,8 +67,7 @@ public class Catalogo_Productos extends AppCompatActivity {
     }
 
     private void cargarProductos() {
-        // Aquí puedes agregar productos manualmente o cargar desde una base de datos
-        listaProductos.add(new Producto("Paracetamol", "Tylenol", "500mg", "Tabletas", "INVIMA 123456", "Lote 789", "$5000", R.drawable.imagen_paracetamol));
-
+        // Agrega el producto "Paracetamol" con el molier como ID numérico
+        listaProductos.add(new Producto("Paracetamol", "Tylenol", "500mg", "Tabletas", "INVIMA 123456", "Lote 789", "$5000", R.drawable.imagen_paracetamol, 1)); // 1 es el molier
     }
 }

@@ -9,7 +9,7 @@
     tools:context=".Catalogo_Productos">
 
 
-    <!-- RecyclerView para mostrar la lista de productos -->
+
 
     <TextView
         android:id="@+id/titulo"
@@ -49,9 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoFarmacia" />
 
-    <!-- Botón "CRUD FarmaciaWP" -->
 
-    <!-- Botón "Agregar al Carrito" -->
 
     <Button
         android:id="@+id/button5"
