@@ -68,11 +68,10 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         TextView txtRegistroInvima;
         TextView txtLote;
         TextView txtValor;
-        Button buttonAdquirir; // Añadir referencia al botón
-
+        Button buttonAdquirir;
         public ProductoViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Inicialización de las vistas
+
             imgProducto = itemView.findViewById(R.id.imgProducto);
             txtNombreComercial = itemView.findViewById(R.id.txtNombreComercial);
             txtNombreGenerico = itemView.findViewById(R.id.txtNombreGenerico);
@@ -81,7 +80,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
             txtRegistroInvima = itemView.findViewById(R.id.txtRegistroInvima);
             txtLote = itemView.findViewById(R.id.txtLote);
             txtValor = itemView.findViewById(R.id.txtValor);
-            buttonAdquirir = itemView.findViewById(R.id.buttonAdquirir); // Inicializa el botón
+            buttonAdquirir = itemView.findViewById(R.id.buttonAdquirir);
         }
     }
 }
