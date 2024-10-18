@@ -10,18 +10,6 @@
     tools:context=".Eliminar">
 
     <!-- Título -->
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/eliminar_producto"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"
-        android:textColor="@color/black"/>
 
     <!-- Ingreso del Molier del producto -->
 
@@ -30,48 +18,78 @@
 
     <!-- Botón para volver -->
 
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eliminar_producto"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301" />
+
     <EditText
         android:id="@+id/editTextMolier"
-        android:layout_width="340dp"
-        android:layout_height="69dp"
+        android:layout_width="290dp"
+        android:layout_height="102dp"
         android:autofillHints="none"
         android:background="@drawable/custom_edittext_border"
         android:hint="@string/ingrese_n_mero_molier"
         android:inputType="number"
         android:padding="10dp"
+        android:text="Ingrese el numero Molier del prodcuto a eleminar"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
         android:id="@+id/buttonEliminar"
         android:layout_width="271dp"
         android:layout_height="59dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="84dp"
         android:backgroundTint="@color/button_blue"
         android:contentDescription="@string/eliminar_producto_descripcion"
         android:text="@string/eliminar_producto"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextMolier" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.692" />
 
     <Button
         android:id="@+id/buttonVolver"
         android:layout_width="317dp"
         android:layout_height="60dp"
-        android:layout_marginTop="44dp"
         android:backgroundTint="@color/button_blue"
         android:text="@string/volver"
-        android:textColor="@color/black"
 
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonEliminar" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.881" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="150dp"
+        android:layout_height="146dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/farmacia2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

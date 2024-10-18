@@ -13,17 +13,17 @@
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/bienvenidos_a_farmaciaswp"
         android:contentDescription="@string/t_tulo_actualizar_producto"
+        android:text="@string/bienvenidos_a_farmaciaswp"
 
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <ImageView
         android:id="@+id/logoFarmacia"
@@ -45,14 +45,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:padding="8dp"
-        app:layout_constraintBottom_toTopOf="@id/button5"
         android:elevation="4dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoFarmacia"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintVertical_bias="0.312" />
 
     <Button
         android:id="@+id/button5"

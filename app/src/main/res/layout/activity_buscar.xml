@@ -9,6 +9,10 @@
     tools:context=".Buscar">
 
     <!-- Título de la actividad -->
+
+    <!-- Campo para ingresar el Número de Molier (ID) -->
+
+
     <TextView
         android:id="@+id/tituloBuscar"
         android:layout_width="wrap_content"
@@ -16,42 +20,46 @@
         android:text="@string/buscar_producto"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.219" />
 
-    <!-- Campo para ingresar el Número de Molier (ID) -->
     <EditText
         android:id="@+id/inputMolier"
         android:layout_width="340dp"
         android:layout_height="69dp"
+        android:autofillHints="none"
         android:background="@drawable/custom_edittext_border"
         android:hint="@string/ingrese_n_mero_molier"
-        android:autofillHints="none"
         android:inputType="number"
         android:padding="10dp"
+        android:text="Ingrese el numero de Molier del producto que desea buscar"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
-
+        app:layout_constraintVertical_bias="0.335" />
 
     <Button
         android:id="@+id/buttonBuscar"
         android:layout_width="262dp"
         android:layout_height="63dp"
         android:backgroundTint="@color/button_blue"
-        android:text="@string/buscar_producto"
         android:contentDescription="@string/buscar_producto_descripcion"
+        android:text="@string/buscar_producto"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintVertical_bias="0.476" />
 
     <TextView
         android:id="@+id/resultadoBuscar"
@@ -75,10 +83,10 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.824" />
+        app:layout_constraintVertical_bias="0.965" />
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
@@ -89,7 +97,21 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.786" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="154dp"
+        android:layout_height="129dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/farmacia2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
