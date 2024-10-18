@@ -14,7 +14,7 @@
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eliminar Producto"
+        android:text="@string/eliminar_producto"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,39 +24,54 @@
         android:textColor="@color/black"/>
 
     <!-- Ingreso del Molier del producto -->
-    <EditText
-        android:id="@+id/editTextMolier"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Ingrese el Molier del producto"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginTop="24dp"/>
+
 
     <!-- Botón para eliminar el producto -->
-    <Button
-        android:id="@+id/buttonEliminar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Eliminar Producto"
-        android:backgroundTint="@color/button_blue"
-        app:layout_constraintTop_toBottomOf="@id/editTextMolier"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
 
     <!-- Botón para volver -->
+
+    <EditText
+        android:id="@+id/editTextMolier"
+        android:layout_width="340dp"
+        android:layout_height="69dp"
+        android:autofillHints="none"
+        android:background="@drawable/custom_edittext_border"
+        android:hint="@string/ingrese_n_mero_molier"
+        android:inputType="number"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.165" />
+
+    <Button
+        android:id="@+id/buttonEliminar"
+        android:layout_width="271dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/button_blue"
+        android:contentDescription="@string/eliminar_producto_descripcion"
+        android:text="@string/eliminar_producto"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextMolier" />
+
     <Button
         android:id="@+id/buttonVolver"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Volver"
+        android:layout_width="317dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="44dp"
         android:backgroundTint="@color/button_blue"
-        app:layout_constraintTop_toBottomOf="@id/buttonEliminar"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/volver"
+        android:textColor="@color/black"
+
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintHorizontal_bias="0.629"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonEliminar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

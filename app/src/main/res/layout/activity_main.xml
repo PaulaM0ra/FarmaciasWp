@@ -15,7 +15,9 @@
         android:backgroundTint="@color/button_blue"
         android:backgroundTintMode="src_over"
         android:hint="@string/hint_Ingreso"
-        android:textColor="@color/button_text_white"
+        android:textColorHint="@color/black"
+
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,6 +78,7 @@
         android:backgroundTint="@color/button_blue"
         android:backgroundTintMode="src_over"
         android:hint="@string/hint_Next"
+        android:textColorHint="@color/black"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,6 +94,8 @@
         android:layout_marginTop="136dp"
         android:backgroundTint="@color/button_blue"
         android:hint="@string/hint_Registro"
+        android:textColorHint="@color/black"
+
         android:textColor="@color/button_text_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -121,16 +126,17 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="144dp"
-        android:layout_height="25dp"
+        android:layout_width="200dp"
+        android:layout_height="32dp"
+        android:contentDescription="@string/descripcion_olvidar_contrasena"
         android:text="@string/hint_Olvidar"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.401"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.402" />
+        app:layout_constraintVertical_bias="0.328" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

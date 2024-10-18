@@ -9,33 +9,33 @@
     tools:context=".Catalogo_Productos">
 
 
-
-
     <TextView
         android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bienvenidos A FarmaciasWp"
+        android:layout_width="258dp"
+        android:layout_height="60dp"
+        android:text="@string/bienvenidos_a_farmaciaswp"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintVertical_bias="0.057" />
 
     <ImageView
         android:id="@+id/logoFarmacia"
         android:layout_width="76dp"
         android:layout_height="66dp"
         android:src="@drawable/farmacia2"
+        android:contentDescription="@string/logo_de_la_empresa"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintVertical_bias="0.013" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -56,7 +56,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
-        android:text="CRUD FarmaciaWP"
+        android:text="@string/crud_farmaciawp"
+        android:textColor="@color/black"
+
         android:backgroundTint="@color/button_blue"
         android:backgroundTintMode="src_over"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,12 +69,15 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/button_blue"
         android:backgroundTintMode="src_over"
-        android:text="Ver el carrito"
+        android:text="@string/ver_el_carrito"
+        android:textColor="@color/black"
+
         app:layout_constraintBottom_toTopOf="@id/button5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextClock
@@ -90,7 +95,7 @@
         android:id="@+id/textView2"
         android:layout_width="159dp"
         android:layout_height="24dp"
-        android:text="NUESTRO CATALOGO"
+        android:text="@string/nuestro_catalogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"

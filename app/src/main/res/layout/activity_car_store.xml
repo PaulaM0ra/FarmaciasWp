@@ -38,7 +38,7 @@
         <!-- Item de ejemplo -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="98dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/product_item_background"
             android:orientation="horizontal"
@@ -86,8 +86,8 @@
 
                 <Button
                     android:id="@+id/button_decrease"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="30dp"
+                    android:layout_height="38dp"
                     android:backgroundTint="@color/primaryButton"
                     android:text="-" />
 
@@ -102,8 +102,8 @@
 
                 <Button
                     android:id="@+id/button_increase"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="33dp"
+                    android:layout_height="match_parent"
                     android:backgroundTint="@color/primaryButton"
                     android:text="+" />
             </LinearLayout>
@@ -113,8 +113,8 @@
     <!-- Botón para finalizar compra -->
     <Button
         android:id="@+id/button_checkout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="291dp"
+        android:layout_height="48dp"
         android:layout_margin="16dp"
         android:backgroundTint="@color/button_blue"
         android:backgroundTintMode="src_over"
