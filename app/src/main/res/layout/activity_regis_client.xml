@@ -8,24 +8,13 @@
     android:background="@color/white"
     tools:context=".RegisClientActivity">
 
-    <!-- Logo de la Empresa -->
-
-    <!-- Título -->
-
-    <!-- Campo de Nombre -->
-
-    <!-- Campo de Dirección -->
-
-    <!-- Campo de Teléfono -->
-
-    <!-- Botón de Registro -->
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="144dp"
         android:layout_height="118dp"
         android:layout_marginTop="36dp"
-        android:contentDescription="Logo de la Empresa"
+        android:contentDescription="@string/logo_de_la_empresa2"
         android:src="@drawable/farmacia2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -37,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Registro de Clientes"
+        android:text="@string/registro_de_clientes"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,13 +35,14 @@
 
     <EditText
         android:id="@+id/name_input"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="371dp"
+        android:layout_height="59dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="20dp"
         android:backgroundTint="@color/white"
-        android:hint="Nombre del Cliente"
+        android:autofillHints="none"
+        android:hint="@string/nombre_del_cliente"
         android:inputType="text"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -63,31 +53,33 @@
 
     <EditText
         android:id="@+id/address_input"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="374dp"
+        android:layout_height="59dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/blue"
-        android:hint="Dirección"
+        android:backgroundTint="@color/white"
+        android:autofillHints="none"
+        android:hint="@string/direcci_n"
         android:inputType="text"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name_input" />
 
     <EditText
         android:id="@+id/phone_input"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="371dp"
+        android:layout_height="71dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/blue"
-        android:hint="Teléfono"
+        android:backgroundTint="@color/white"
+        android:hint="@string/tel_fono"
         android:inputType="phone"
+        android:autofillHints="none"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,12 +89,12 @@
 
     <Button
         android:id="@+id/register_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="154dp"
+        android:layout_height="55dp"
         android:layout_marginTop="36dp"
         android:backgroundTint="@color/button_blue"
-        android:text="Registrar"
-        android:textColor="@color/white"
+        android:text="@string/registrar"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,14 +102,16 @@
 
     <Button
         android:id="@+id/Button18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEXT - INICIO"
+        android:layout_width="155dp"
+        android:layout_height="59dp"
         android:backgroundTint="@color/button_blue"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:backgroundTintMode="src_over"
+        android:text="@string/hint_Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />

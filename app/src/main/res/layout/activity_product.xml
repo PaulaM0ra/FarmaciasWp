@@ -8,35 +8,20 @@
     tools:context=".ProductActivity">
 
     <TextView
-        android:id="@+id/company_info2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:gravity="center"
-        android:text="FarmaciasWP - Tu droguería de confianza"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent" />
-
-    <TextView
         android:id="@+id/company_info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:gravity="center"
-        android:text="FarmaciasWP - Gestion BD"
+        android:text="@string/farmaciaswp_gestion_bd"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.039" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/button_add"
@@ -47,7 +32,7 @@
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
+        android:contentDescription="@string/descripcion_boton_agregar"
         app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +42,7 @@
         android:id="@+id/text_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pulse aquí para agregar un producto"
+        android:text="@string/pulse_aqu_para_agregar_un_producto"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/button_add"
@@ -74,6 +59,7 @@
         android:layout_marginBottom="76dp"
         android:layout_weight="1"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/buscar_producto_descripcion"
 
         android:src="@drawable/ic_search"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:text="Pulse aquí para buscar un producto"
+        android:text="@string/pulse_aqu_para_buscar_un_producto"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/button_search"
@@ -104,6 +90,8 @@
         android:layout_height="56dp"
         android:layout_weight="1"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/t_tulo_actualizar_producto"
+
         android:src="@drawable/ic_update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,14 +104,15 @@
         android:id="@+id/text_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pulse aquí para actualizar un producto"
+        android:text="@string/pulse_aqu_para_actualizar_un_producto"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/button_update"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toEndOf="@+id/button_update"
         app:layout_constraintTop_toTopOf="@id/button_update"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.617" />
 
     <ImageButton
         android:id="@+id/button_delete"
@@ -132,6 +121,7 @@
         android:layout_marginStart="32dp"
         android:layout_weight="1"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/descripcion_eliminar_producto"
         android:src="@drawable/ic_delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +133,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="Pulse aquí para borrar un producto"
+        android:text="@string/pulse_aqu_para_borrar_un_producto"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/button_delete"
@@ -157,15 +147,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_blue"
-        android:text="LISTADO DE PRODUCTOS &quot; FarmaciaWP&quot;"
-        android:textColor="@color/white"
+        android:text="@string/listad"
+        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.681"
+        app:layout_constraintHorizontal_bias="0.604"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852" />
+        app:layout_constraintVertical_bias="0.934" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -175,20 +165,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/desc_imagen_farmacia"
+
         app:layout_constraintVertical_bias="0.006"
         app:srcCompat="@drawable/farmacia2" />
 
     <CheckedTextView
         android:id="@+id/checkedTextView"
-        android:layout_width="352dp"
-        android:layout_height="51dp"
-        android:text="Si desea adquirir algun producto de nuestro inventario por favor dirijase por medio de este botton a nuestro listado de productos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/desc_anuncio"
+        android:text="@string/Botonlistao"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.728"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
+        app:layout_constraintVertical_bias="0.812" />
 
     <TextClock
         android:id="@+id/textClock2"
@@ -211,6 +203,6 @@
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945" />
+        app:layout_constraintVertical_bias="0.977" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,9 +11,11 @@
 
     <TextView
         android:id="@+id/titulo"
-        android:layout_width="258dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/bienvenidos_a_farmaciaswp"
+        android:contentDescription="@string/t_tulo_actualizar_producto"
+
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,19 +39,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.013" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="409dp"
-        android:layout_height="366dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:elevation="4dp"
         android:padding="8dp"
         app:layout_constraintBottom_toTopOf="@id/button5"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.033"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoFarmacia" />
-
-
+        app:layout_constraintTop_toBottomOf="@id/logoFarmacia"
+        app:layout_constraintVertical_bias="0.308" />
 
     <Button
         android:id="@+id/button5"
@@ -93,14 +96,15 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="159dp"
-        android:layout_height="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/descripcion_nuestro_catalogo"
         android:text="@string/nuestro_catalogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23" />
+        app:layout_constraintVertical_bias="0.174" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
