@@ -9,21 +9,6 @@
     android:padding="30dp"
     tools:context=".ActualizarProductoActivity">
 
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/t_tulo_actualizar_producto"
-        android:text="@string/actualizar_producto"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:importantForAccessibility="yes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!-- Imagen seleccionada que se mostrará -->
 
     <!-- Botones -->
@@ -36,118 +21,109 @@
     <!-- Botón para volver -->
 
     <EditText
-        android:id="@+id/nombreComercial"
-        android:layout_width="339dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="16dp"
-        android:autofillHints="none"
-        android:background="@drawable/custom_edittext_border"
-        android:hint="@string/nombre_comercial"
+        android:id="@+id/editTextText9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
         android:inputType="text"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:text="REGISTRO INVIMA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.162" />
+        app:layout_constraintVertical_bias="0.664" />
 
     <EditText
-        android:id="@+id/nombreGenerico"
-        android:layout_width="337dp"
+        android:id="@+id/editTextText8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="NOMBRE GENERICO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.214" />
+
+    <EditText
+        android:id="@+id/editTextText7"
+        android:layout_width="211dp"
         android:layout_height="48dp"
-        android:autofillHints="none"
-        android:background="@drawable/custom_edittext_border"
-        android:hint="@string/nombre_gen_rico"
+        android:ems="10"
         android:inputType="text"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:text="LOTE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintVertical_bias="0.59" />
 
     <EditText
-        android:id="@+id/concentracion"
-        android:layout_width="336dp"
-        android:layout_height="50dp"
-        android:autofillHints="none"
-        android:background="@drawable/custom_edittext_border"
-        android:hint="@string/concentraci_n"
-        android:inputType="number"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38" />
-
-    <EditText
-        android:id="@+id/presentacion"
-        android:layout_width="340dp"
+        android:id="@+id/editTextText6"
+        android:layout_width="211dp"
         android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        android:autofillHints="none"
-        android:background="@drawable/custom_edittext_border"
-        android:hint="@string/presentaci_n"
+        android:ems="10"
         android:inputType="text"
-        android:padding="10dp"
-        android:textColorHint="@color/black"
-
+        android:text="PRESENTACION"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <EditText
-        android:id="@+id/registroInvima"
-        android:layout_width="334dp"
-        android:layout_height="49dp"
-        android:autofillHints="none"
-        android:background="@drawable/custom_edittext_border"
-        android:hint="@string/registro_invima"
-        android:inputType="number"
-        android:padding="10dp"
-        android:textColorHint="@color/black"
+        android:id="@+id/editTextText5"
+        android:layout_width="211dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="CONCENTRACION"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635" />
+        app:layout_constraintVertical_bias="0.396" />
 
     <EditText
-        android:id="@+id/lote"
-        android:layout_width="339dp"
-        android:layout_height="49dp"
-        android:autofillHints="none"
-        android:background="@drawable/custom_edittext_border"
-        android:hint="@string/lote"
-        android:inputType="number"
-        android:padding="10dp"
+        android:id="@+id/editTextText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="NOMBRE COMERCIAL"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.306" />
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/t_tulo_actualizar_producto"
+        android:importantForAccessibility="yes"
+        android:text="@string/actualizar_producto"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.556" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/molier"
-        android:layout_width="226dp"
-        android:layout_height="59dp"
+        android:layout_width="201dp"
+        android:layout_height="47dp"
         android:autofillHints="none"
         android:background="@drawable/custom_edittext_border"
         android:enabled="false"
@@ -159,37 +135,23 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.088" />
 
     <Button
         android:id="@+id/buttonSeleccionarImagen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="133dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/button_blue"
         android:text="@string/cargar_imagen"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
-
-    <ImageView
-        android:id="@+id/product_image"
-        android:layout_width="76dp"
-        android:layout_height="70dp"
-        android:contentDescription="@string/imagen_del_producto"
-        android:src="@drawable/farmacia2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.738" />
+        app:layout_constraintVertical_bias="0.775" />
 
     <Button
         android:id="@+id/buttonBuscarMolier"
@@ -200,7 +162,7 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.088" />
@@ -210,7 +172,7 @@
         android:layout_width="250dp"
         android:layout_height="51dp"
         android:backgroundTint="@color/button_blue"
-        android:text="@string/actualizar"
+        android:text="Actualizar Producto"
         android:textColor="@color/black"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -218,34 +180,71 @@
         app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.806" />
+        app:layout_constraintVertical_bias="0.858" />
 
     <Button
         android:id="@+id/buttonGuardarBD"
-        android:layout_width="268dp"
-        android:layout_height="56dp"
+        android:layout_width="244dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/button_blue"
         android:text="@string/guardar_en_bd"
         android:textColor="@color/black"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895" />
+        app:layout_constraintVertical_bias="0.938" />
 
     <Button
         android:id="@+id/buttonVolver"
-        android:layout_width="204dp"
-        android:layout_height="51dp"
+        android:layout_width="96dp"
+        android:layout_height="38dp"
         android:backgroundTint="@color/button_blue"
         android:text="@string/volver"
         android:textColor="@color/black"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextClock
+        android:id="@+id/textClock9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.965"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.001" />
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="NOMBRE GENERICO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.214" />
+
+    <ProgressBar
+        android:id="@+id/progressBar11"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="109dp"
+        android:layout_height="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
