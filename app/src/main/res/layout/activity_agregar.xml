@@ -8,29 +8,6 @@
     android:padding="30dp"
     tools:context=".Agregar_">
 
-    <!-- Título de la actividad -->
-
-    <!-- Campo para Nombre Comercial -->
-
-    <!-- Campo para Nombre Genérico -->
-
-    <!-- Campo para Concentración -->
-
-    <!-- Campo para Presentación -->
-
-    <!-- Campo para Registro INVIMA -->
-
-    <!-- Campo para Lote -->
-
-    <!-- Campo para Valor -->
-
-    <!-- Campo para Molier -->
-
-
-    <!-- Botón para seleccionar la imagen -->
-
-    <!-- Imagen seleccionada que se mostrará -->
-
     <ProgressBar
         android:id="@+id/progressBar7"
         style="?android:attr/progressBarStyleHorizontal"

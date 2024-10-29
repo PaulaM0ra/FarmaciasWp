@@ -62,6 +62,6 @@ public class Producto {
     }
 
     public int getMolier() {
-        return molier; // Getter para molier
+        return molier; //
     }
 }
