@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "319278873916",
+    "project_id": "fir-farmaciawp",
+    "storage_bucket": "fir-farmaciawp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319278873916:android:35f5d241b99f1ebc803239",
+        "android_client_info": {
+          "package_name": "com.example.farmaciaswp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZA8zrktvpZnpPRzHVLiFDSOg-O_qpjTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
