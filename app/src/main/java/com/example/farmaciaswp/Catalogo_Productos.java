@@ -64,6 +64,15 @@ public class Catalogo_Productos extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button buttonmapa = findViewById(R.id.button6);
+        buttonmapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Catalogo_Productos.this, LocationActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void cargarProductos() {
