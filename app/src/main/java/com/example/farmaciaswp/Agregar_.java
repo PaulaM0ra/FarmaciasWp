@@ -154,6 +154,7 @@ public class Agregar_ extends AppCompatActivity {
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(Agregar_.this, "Producto agregado exitosamente a Firestore", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
+                    finish();  // Cierra el activity y vuelve al anterior
                 })
                 .addOnFailureListener(e -> {
                     String errorMessage = "Error al guardar en Firestore: " + e.getMessage();

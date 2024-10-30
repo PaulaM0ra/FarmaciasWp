@@ -28,6 +28,11 @@ public class Producto {
         this.molier = molier; // Asignar el valor de molier
     }
 
+    // Constructor vacío para Firestore
+    public Producto() {
+        // Constructor vacío necesario para Firestore
+    }
+
     // Métodos getter para acceder a los atributos
     public String getImagen() {
         return imagen; // Cambiado para devolver String
@@ -63,5 +68,10 @@ public class Producto {
 
     public String getMolier() {
         return molier; //
+    }
+
+    // Método setter para el molier
+    public void setMolier(String molier) {
+        this.molier = molier; // Asignar el valor de molier
     }
 }
