@@ -82,5 +82,7 @@
     <string name="lote2">Lote</string>
     <string name="valor2">Valor</string>
     <string name="adquirir">Adquirir</string>
+    <string name="ubicacion">Esperando ubicación...</string>
+    <string name="ir_al_maps">Ir al maps</string>
 
 </resources>
