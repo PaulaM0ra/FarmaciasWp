@@ -123,7 +123,16 @@ public class Agregar_ extends AppCompatActivity {
     // Guardar los datos en Firestore con la URL de la imagen
     private void guardarDatosEnDatabase(String imageUrl) {
         // Convertir el valor de molier a int
-        int molierInt = Integer.parseInt(molier.getText().toString());
+        String molierString = molier.getText().toString(); // Obtener el valor de molier como String
+        int molierInt;
+
+        // Validar si el molier se puede convertir a entero
+        try {
+            molierInt = Integer.parseInt(molierString); // Intentar convertir a int
+        } catch (NumberFormatException e) {
+            Toast.makeText(Agregar_.this, "El ID (molier) debe ser un número válido", Toast.LENGTH_SHORT).show();
+            return; // Salir si la conversión falla
+        }
 
         // Crear un nuevo objeto Producto con los datos ingresados
         Producto producto = new Producto(
@@ -135,12 +144,13 @@ public class Agregar_ extends AppCompatActivity {
                 lote.getText().toString(),
                 valor.getText().toString(),
                 imageUrl,  // Usa la URL de la imagen
-                molier.getText().toString()
+                molierString // Mantén molier como String para el objeto Producto
         );
 
-        // Guardar el producto en Firestore en la colección "PRODUCTOSWP"
+        // Guardar el producto en Firestore en la colección "PRODUCTOSWP" usando el molier como ID
         firestore.collection("PRODUCTOSWP")
-                .add(producto)  // Añade el objeto producto con ID único
+                .document(molierString) // Usar molier como ID del documento
+                .set(producto)  // Guarda el objeto producto con el ID especificado
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(Agregar_.this, "Producto agregado exitosamente a Firestore", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
@@ -153,3 +163,4 @@ public class Agregar_ extends AppCompatActivity {
                 });
     }
 }
+
