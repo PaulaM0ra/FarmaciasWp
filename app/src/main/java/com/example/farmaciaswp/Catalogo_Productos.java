@@ -76,7 +76,9 @@ public class Catalogo_Productos extends AppCompatActivity {
     }
 
     private void cargarProductos() {
-        // Agrega el producto "Paracetamol" con el molier como ID numérico
-        listaProductos.add(new Producto("Paracetamol", "Tylenol", "500mg", "Tabletas", "INVIMA 123456", "Lote 789", "$5000", R.drawable.imagen_paracetamol, 1)); // 1 es el molier
+        listaProductos.add(new Producto("Paracetamol", "Tylenol", "500mg", "Tabletas", "INVIMA 123456", "Lote 789", "$5000", "https://tse4.mm.bing.net/th?id=OIP.PohVuDgIN_Nua_BH_CP2bQHaHa&pid=Api&P=0&h=180","1")); // Asegúrate de usar una URL válida
+
     }
 }
+
+

@@ -2,7 +2,7 @@ package com.example.farmaciaswp;
 
 public class Producto {
     // Atributos de la clase
-    private int imagen; // Recurso de imagen
+    private String imagen; // Cambiado a String para almacenar la URL de la imagen
     private String nombreComercial; // Nombre comercial del producto
     private String nombreGenerico; // Nombre genérico del producto
     private String concentracion; // Concentración del producto
@@ -10,14 +10,14 @@ public class Producto {
     private String registroInvima; // Registro INVIMA del producto
     private String lote; // Lote del producto
     private String valor; // Valor o precio del producto
-    private int molier; // Número único de identificación (molier)
+    private String molier; // Número único de identificación (molier)
 
     // Constructor de la clase
     public Producto(String nombreComercial, String nombreGenerico,
                     String concentracion, String presentacion,
                     String registroInvima, String lote, String valor,
-                    int imagen, int molier) { // Cambia a int
-        this.imagen = imagen;
+                    String imagen, String molier) { // Cambiado a String
+        this.imagen = imagen; // Asiar URL de la imagen
         this.nombreComercial = nombreComercial;
         this.nombreGenerico = nombreGenerico;
         this.concentracion = concentracion;
@@ -29,8 +29,8 @@ public class Producto {
     }
 
     // Métodos getter para acceder a los atributos
-    public int getImagen() {
-        return imagen;
+    public String getImagen() {
+        return imagen; // Cambiado para devolver String
     }
 
     public String getNombreComercial() {
@@ -61,7 +61,7 @@ public class Producto {
         return valor;
     }
 
-    public int getMolier() {
+    public String getMolier() {
         return molier; //
     }
 }

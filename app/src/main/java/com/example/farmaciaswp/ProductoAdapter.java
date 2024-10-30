@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.bumptech.glide.Glide;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,8 +35,14 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         // Obtener el producto en la posición actual
         Producto producto = productos.get(position);
 
+
+        // Usar Glide para cargar la imagen desde la URL
+        Glide.with(holder.itemView.getContext())
+                .load(producto.getImagen()) // Aquí se usa la URL de la imagen
+                .into(holder.imgProducto); // Carga la imagen en el ImageView
+
         // Asignar los valores del producto a las vistas correspondientes
-        holder.imgProducto.setImageResource(producto.getImagen());
+
         holder.txtNombreComercial.setText(producto.getNombreComercial());
         holder.txtNombreGenerico.setText(producto.getNombreGenerico());
         holder.txtConcentracion.setText(producto.getConcentracion());

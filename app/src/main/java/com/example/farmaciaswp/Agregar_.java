@@ -3,6 +3,7 @@ package com.example.farmaciaswp;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,8 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -26,7 +26,7 @@ public class Agregar_ extends AppCompatActivity {
     private EditText nombreComercial, nombreGenerico, concentracion, presentacion, registroInvima, lote, valor, molier;
     private Button buttonGuardar, buttonVolver, buttonSeleccionarImagen;
     private ProgressBar progressBar;
-    private DatabaseReference databaseReference;
+    private FirebaseFirestore firestore;
     private StorageReference storageReference;
     private Uri imageUri;
 
@@ -35,8 +35,8 @@ public class Agregar_ extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar);
 
-        // Inicializar Firebase Database y Storage
-        databaseReference = FirebaseDatabase.getInstance().getReference("productos");
+        // Inicializar Firestore y Storage
+        firestore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference("imagenes");
 
         // Inicializar EditTexts
@@ -74,14 +74,6 @@ public class Agregar_ extends AppCompatActivity {
                 }
             }
         });
-
-        // Botón para volver a la actividad anterior
-        buttonVolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();  // Finaliza la actividad actual y vuelve atrás
-            }
-        });
     }
 
     // Método para abrir la galería y seleccionar imagen
@@ -100,7 +92,7 @@ public class Agregar_ extends AppCompatActivity {
         }
     }
 
-    // Subir la imagen a Firebase Storage y guardar los datos en Firebase Database
+    // Subir la imagen a Firebase Storage y guardar los datos en Firestore
     private void subirImagenYGuardarDatos() {
         progressBar.setVisibility(View.VISIBLE);
 
@@ -114,7 +106,7 @@ public class Agregar_ extends AppCompatActivity {
                 fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        // Obtener la URL de la imagen subida y guardar los datos en Firebase Database
+                        // Obtener la URL de la imagen subida y guardar los datos en Firestore
                         String imageUrl = uri.toString();
                         guardarDatosEnDatabase(imageUrl);
                     }
@@ -128,14 +120,12 @@ public class Agregar_ extends AppCompatActivity {
         });
     }
 
-    // Guardar los datos en Firebase Database con la URL de la imagen
+    // Guardar los datos en Firestore con la URL de la imagen
     private void guardarDatosEnDatabase(String imageUrl) {
-        String id = databaseReference.push().getKey();
-
         // Convertir el valor de molier a int
         int molierInt = Integer.parseInt(molier.getText().toString());
 
-        // Crear un nuevo objeto Producto
+        // Crear un nuevo objeto Producto con los datos ingresados
         Producto producto = new Producto(
                 nombreComercial.getText().toString(),
                 nombreGenerico.getText().toString(),
@@ -144,11 +134,22 @@ public class Agregar_ extends AppCompatActivity {
                 registroInvima.getText().toString(),
                 lote.getText().toString(),
                 valor.getText().toString(),
-                R.drawable.default_image, // Puedes poner un recurso de imagen predeterminado o cambiarlo según tu lógica
-                molierInt
+                imageUrl,  // Usa la URL de la imagen
+                molier.getText().toString()
         );
 
-        // Guardar el producto en Firebase
-        databaseReference.child(id).setValue(producto);
+        // Guardar el producto en Firestore en la colección "PRODUCTOSWP"
+        firestore.collection("PRODUCTOSWP")
+                .add(producto)  // Añade el objeto producto con ID único
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(Agregar_.this, "Producto agregado exitosamente a Firestore", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+                })
+                .addOnFailureListener(e -> {
+                    String errorMessage = "Error al guardar en Firestore: " + e.getMessage();
+                    Toast.makeText(Agregar_.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    Log.e("FirestoreError", errorMessage, e); // Agrega el objeto de excepción para más detalles
+                    progressBar.setVisibility(View.GONE);
+                });
     }
 }
