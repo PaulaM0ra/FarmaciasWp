@@ -9,10 +9,6 @@
     tools:context=".Buscar">
 
     <!-- Título de la actividad -->
-
-    <!-- Campo para ingresar el Número de Molier (ID) -->
-
-
     <TextView
         android:id="@+id/tituloBuscar"
         android:layout_width="wrap_content"
@@ -29,62 +25,89 @@
 
     <EditText
         android:id="@+id/inputMolier"
-        android:layout_width="340dp"
-        android:layout_height="69dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:autofillHints="none"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/custom_edittext_border"
         android:hint="@string/ingrese_n_mero_molier"
         android:inputType="number"
         android:padding="10dp"
-        android:text="Ingrese el numero de Molier del producto que desea buscar"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.325" />
 
     <Button
         android:id="@+id/buttonBuscar"
-        android:layout_width="262dp"
-        android:layout_height="63dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:backgroundTint="@color/button_blue"
-        android:contentDescription="@string/buscar_producto_descripcion"
         android:text="@string/buscar_producto"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.435" />
 
-    <TextView
-        android:id="@+id/resultadoBuscar"
-        android:layout_width="0dp"
+    <!-- Contenedor para mostrar los resultados de búsqueda -->
+    <LinearLayout
+        android:id="@+id/resultadosContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/resultado_de_la_b_squeda"
-        android:textSize="18sp"
+        android:orientation="vertical"
         android:visibility="gone"
-    android:padding="10dp"
-    app:layout_constraintTop_toBottomOf="@+id/buttonBuscar"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonBuscar"
+        app:layout_constraintBottom_toTopOf="@+id/buttonVolverBuscar"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/resultadoBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/resultado_de_la_b_squeda"
+            android:textSize="18sp"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/informacionProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AQUI SE MOSTRARA LA INFORMACION DEL PRODUCTO RELACIONADO CON EL MOLIER"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:background="@android:color/white"
+            android:elevation="4dp"
+            android:layout_marginTop="8dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar8"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonVolverBuscar"
-        android:layout_width="265dp"
-        android:layout_height="54dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:backgroundTint="@color/button_blue"
         android:text="@string/volver"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultadosContainer"
         app:layout_constraintVertical_bias="0.933" />
 
     <ImageView
@@ -94,22 +117,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.047"
         app:srcCompat="@drawable/farmacia2" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="287dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="192dp"
-        android:text="AQUI SE MOSTRARA LA INFORMACION DEL PRODUCTO RELACIONADO CON EL MOLIER"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBuscar"
-        app:layout_constraintVertical_bias="0.129" />
 
     <TextClock
         android:id="@+id/textClock7"
@@ -118,44 +128,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ProgressBar
-        android:id="@+id/progressBar8"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="309dp"
-        android:layout_height="220dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727"
-        app:srcCompat="@android:drawable/ic_dialog_dialer" />
-
-    <ProgressBar
-        android:id="@+id/progressBar9"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="154dp"
-        android:layout_height="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
