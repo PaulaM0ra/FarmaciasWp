@@ -84,5 +84,10 @@
     <string name="adquirir">Adquirir</string>
     <string name="ubicacion">Esperando ubicación...</string>
     <string name="ir_al_maps">Ir al maps</string>
+    <string name="nombre_comercia">NOMBRE COMERCIAL</string>
+    <string name="actualizar_producto2">Actualizar Producto</string>
+    <string name="nombre_generico">NOMBRE GENERICO</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="ubicaci_n_actual">Ubicación Actual</string>
 
 </resources>

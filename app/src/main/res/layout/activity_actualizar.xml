@@ -6,247 +6,174 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
-    tools:context=".ActualizarProductoActivity">
+    android:padding="30dp">
 
-    <!-- Imagen seleccionada que se mostrará -->
+    <!-- Título -->
 
-    <!-- Botones -->
-    <!-- Botón para buscar por número Molier -->
-
-    <!-- Botón para actualizar los datos -->
-
-    <!-- Botón para guardar en la base de datos -->
-
-    <!-- Botón para volver -->
-
-    <EditText
-        android:id="@+id/editTextText9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="REGISTRO INVIMA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.664" />
-
-    <EditText
-        android:id="@+id/editTextText8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="NOMBRE GENERICO"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214" />
-
-    <EditText
-        android:id="@+id/editTextText7"
-        android:layout_width="211dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="LOTE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59" />
-
-    <EditText
-        android:id="@+id/editTextText6"
-        android:layout_width="211dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="PRESENTACION"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-
-    <EditText
-        android:id="@+id/editTextText5"
-        android:layout_width="211dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="CONCENTRACION"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
-
-    <EditText
-        android:id="@+id/editTextText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="NOMBRE COMERCIAL"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306" />
-
+    <!-- Número Molier (no editable) -->
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/t_tulo_actualizar_producto"
-        android:importantForAccessibility="yes"
+        android:layout_marginTop="16dp"
+        android:inputType="number"
         android:text="@string/actualizar_producto"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.364"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- EditText Fields -->
+
     <EditText
         android:id="@+id/molier"
-        android:layout_width="201dp"
-        android:layout_height="47dp"
-        android:autofillHints="none"
+        android:layout_width="225dp"
+        android:layout_height="55dp"
         android:background="@drawable/custom_edittext_border"
-        android:enabled="false"
         android:hint="@string/n_mero_molier_para_actualizar_no_editable"
         android:inputType="number"
         android:padding="10dp"
-
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintTop_toBottomOf="@id/titulo" />
+
+    <EditText
+        android:id="@+id/nombre_generico"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="@string/nombre_generico"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/molier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/nombre_comercial"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="@string/nombre_comercia"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/nombre_generico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/concentracion"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="@string/concentraci_n2"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/nombre_comercial"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/presentacion"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="PRESENTACION"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/concentracion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/lote"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="@string/lote"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/presentacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/registro_invima"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="REGISTRO INVIMA"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/lote"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botones -->
 
     <Button
         android:id="@+id/buttonSeleccionarImagen"
-        android:layout_width="133dp"
-        android:layout_height="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/button_blue"
         android:text="@string/cargar_imagen"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.775" />
+        app:layout_constraintTop_toBottomOf="@id/registro_invima" />
 
     <Button
         android:id="@+id/buttonBuscarMolier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:backgroundTint="@color/button_blue"
         android:text="@string/precargar"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.866"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonActualizar"
         android:layout_width="250dp"
-        android:layout_height="51dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/button_blue"
-        android:text="Actualizar Producto"
-        android:textColor="@color/black"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.858" />
-
-    <Button
-        android:id="@+id/buttonGuardarBD"
-        android:layout_width="244dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/button_blue"
-        android:text="@string/guardar_en_bd"
-        android:textColor="@color/black"
-
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/actualizar_producto2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.938" />
+        app:layout_constraintTop_toBottomOf="@id/buttonSeleccionarImagen" />
+
+    <Button
+        android:id="@+id/buttonGuardarBD"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/button_blue"
+        android:text="@string/guardar_en_bd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonActualizar" />
 
     <Button
         android:id="@+id/buttonVolver"
         android:layout_width="96dp"
-        android:layout_height="38dp"
-        android:backgroundTint="@color/button_blue"
+        android:layout_height="wrap_content"
         android:text="@string/volver"
-        android:textColor="@color/black"
-
+        android:backgroundTint="@color/button_blue"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- TextClock y ProgressBar -->
     <TextClock
-        android:id="@+id/textClock9"
+        android:id="@+id/textClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.965"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.001" />
-
-    <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="NOMBRE GENERICO"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ProgressBar
-        android:id="@+id/progressBar11"
+        android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="109dp"
         android:layout_height="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
