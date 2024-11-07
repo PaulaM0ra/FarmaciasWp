@@ -89,5 +89,11 @@
     <string name="nombre_generico">NOMBRE GENERICO</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="ubicaci_n_actual">Ubicación Actual</string>
+    <string name="nombre_cliente">Nombre Cliente</string>
+    <string name="numero_telefono">Numero Telefono</string>
+    <string name="direccion">Direccion</string>
+    <string name="numero_de_documento">Numero De Documento</string>
+    <string name="correo_electronico">Correo Electronico</string>
+    <string name="registro_de_clientest">REGISTRO DE CLIENTES</string>
 
 </resources>
