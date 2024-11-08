@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.google.firebase.firestore.FirebaseFirestore;
+import java.util.HashMap;
+import java.util.Map;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,10 +19,12 @@ import java.util.List;
 public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder> {
 
     private List<Producto> productos;
+    private FirebaseFirestore db;
 
     // Constructor del adaptador que recibe la lista de productos
     public ProductoAdapter(List<Producto> productos) {
         this.productos = productos;
+        db = FirebaseFirestore.getInstance(); // Inicializar Firestore
     }
 
     @NonNull
@@ -35,14 +40,12 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         // Obtener el producto en la posición actual
         Producto producto = productos.get(position);
 
-
         // Usar Glide para cargar la imagen desde la URL
         Glide.with(holder.itemView.getContext())
-                .load(producto.getImagen()) // Aquí se usa la URL de la imagen
-                .into(holder.imgProducto); // Carga la imagen en el ImageView
+                .load(producto.getImagen())
+                .into(holder.imgProducto);
 
         // Asignar los valores del producto a las vistas correspondientes
-
         holder.txtNombreComercial.setText(producto.getNombreComercial());
         holder.txtNombreGenerico.setText(producto.getNombreGenerico());
         holder.txtConcentracion.setText(producto.getConcentracion());
@@ -53,19 +56,31 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
 
         // Configurar el listener del botón "Adquirir"
         holder.buttonAdquirir.setOnClickListener(v -> {
-            // Lógica para adquirir el producto
-            Toast.makeText(v.getContext(), "Producto adquirido: " + producto.getNombreComercial(), Toast.LENGTH_SHORT).show();
+            // Crear un mapa de los datos limitados del producto
+            Map<String, Object> productoMap = new HashMap<>();
+            productoMap.put("nombreComercial", producto.getNombreComercial());
+            productoMap.put("presentacion", producto.getPresentacion());
+            productoMap.put("imagen", producto.getImagen());
+            productoMap.put("molier", producto.getMolier());
+            productoMap.put("valor", producto.getValor());
+
+            // Guardar el producto directamente en la colección "Carrito"
+            db.collection("Carrito").add(productoMap)
+                    .addOnSuccessListener(documentReference -> {
+                        Toast.makeText(v.getContext(), "Producto añadido al carrito: " + producto.getNombreComercial(), Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(v.getContext(), "Error al añadir producto al carrito", Toast.LENGTH_SHORT).show();
+                    });
         });
     }
 
     @Override
     public int getItemCount() {
-        // Devolver el número de productos en la lista
         return productos.size();
     }
 
     public static class ProductoViewHolder extends RecyclerView.ViewHolder {
-        // Definición de las vistas en el item de producto
         ImageView imgProducto;
         TextView txtNombreComercial;
         TextView txtNombreGenerico;
@@ -75,9 +90,9 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         TextView txtLote;
         TextView txtValor;
         Button buttonAdquirir;
+
         public ProductoViewHolder(@NonNull View itemView) {
             super(itemView);
-
             imgProducto = itemView.findViewById(R.id.imgProducto);
             txtNombreComercial = itemView.findViewById(R.id.txtNombreComercial);
             txtNombreGenerico = itemView.findViewById(R.id.txtNombreGenerico);

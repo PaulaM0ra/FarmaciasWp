@@ -1,169 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CarStoreActivity">
+    android:padding="16dp">
 
-    <!-- Header del carrito -->
+    <!-- Título de Carrito de Compras -->
     <TextView
-        android:id="@+id/cart_title"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtCarritoCompras"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="@string/carrito_de_compras"
-        android:textColor="@color/textPrimary"
+        android:text="Carrito de Compras"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
 
-    <!-- Lista de productos (simulada) -->
-    <LinearLayout
-        android:id="@+id/product_list"
-        android:layout_width="0dp"
+    <!-- RecyclerView para mostrar productos del carrito -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCarrito"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:orientation="vertical"
+        app:layout_manager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_weight="1"/>
+
+    <!-- Muestra el total de la compra -->
+    <TextView
+        android:id="@+id/txtTotalCompra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total: $0.00"
+        android:textSize="18sp"
         android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@id/button_checkout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cart_title">
-
-        <!-- Item de ejemplo -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="98dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/product_item_background"
-            android:orientation="horizontal"
-            android:padding="12dp">
-
-            <ImageView
-                android:id="@+id/product_image"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_vertical"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/imagen_del_medicamento"
-
-                android:src="@drawable/sample_image" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/product_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nombre_del_producto"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/product_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/precio_"
-                    android:textColor="@color/textSecondary"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- Control de cantidad -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button_decrease"
-                    android:textColor="@color/black"
-
-                    android:layout_width="30dp"
-                    android:layout_height="38dp"
-                    android:backgroundTint="@color/primaryButton"
-                    android:text="@string/negativo" />
-
-                <TextView
-                    android:id="@+id/product_quantity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="12dp"
-                    android:text="@string/numero1"
-                    android:textColor="@color/textPrimary"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/button_increase"
-                    android:layout_width="33dp"
-                    android:layout_height="match_parent"
-                    android:backgroundTint="@color/primaryButton"
-                    android:text="@string/mas" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+        android:gravity="center"/>
 
     <!-- Botón para finalizar compra -->
     <Button
-        android:id="@+id/button_checkout"
-        android:layout_width="291dp"
-        android:layout_height="48dp"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/button_blue"
-        android:backgroundTintMode="src_over"
-        android:text="@string/finalizar_compra"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Button17"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- Botón ya existente -->
-    <Button
-        android:id="@+id/Button17"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnFinalizarCompra"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_blue"
-        android:backgroundTintMode="src_over"
-        android:text="@string/hint_Next"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        android:text="Finalizar Compra"
+        android:padding="16dp"
+        android:gravity="center"/>
 
-    <TextClock
-        android:id="@+id/textClock4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
-
-    <ProgressBar
-        android:id="@+id/progressBar5"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="163dp"
-        android:layout_height="21dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
