@@ -53,8 +53,9 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         holder.txtRegistroInvima.setText(producto.getRegistroInvima());
         holder.txtLote.setText(producto.getLote());
         holder.txtValor.setText(producto.getValor());
+        holder.txtValor.setText(producto.getValor());
 
-        // Configurar el listener del botón "Adquirir"
+        // Configurar el listener del botón "Adquiriractuall"
         holder.buttonAdquirir.setOnClickListener(v -> {
             // Crear un mapa de los datos limitados del producto
             Map<String, Object> productoMap = new HashMap<>();

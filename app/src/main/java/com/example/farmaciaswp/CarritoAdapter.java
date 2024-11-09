@@ -20,12 +20,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.CarritoV
         this.productosCarrito = productosCarrito;
     }
 
-    @NonNull
-    @Override
-    public CarritoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_carrito, parent, false);
-        return new CarritoViewHolder(view);
-    }
+
 
     @Override
     public void onBindViewHolder(@NonNull CarritoViewHolder holder, int position) {
