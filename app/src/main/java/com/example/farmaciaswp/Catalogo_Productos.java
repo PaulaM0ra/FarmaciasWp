@@ -68,7 +68,7 @@ public class Catalogo_Productos extends AppCompatActivity {
         buttonCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Catalogo_Productos.this, CarStoreActivity.class);
+                Intent intent = new Intent(Catalogo_Productos.this, CARRO.class);
                 startActivity(intent);
             }
         });

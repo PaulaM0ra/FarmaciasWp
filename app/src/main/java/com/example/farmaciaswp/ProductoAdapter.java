@@ -1,5 +1,8 @@
 package com.example.farmaciaswp;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.gson.Gson;
+
 import java.util.HashMap;
 import java.util.Map;
 import androidx.annotation.NonNull;
@@ -61,18 +66,31 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
             productoMap.put("nombreComercial", producto.getNombreComercial());
             productoMap.put("presentacion", producto.getPresentacion());
             productoMap.put("imagen", producto.getImagen());
-            productoMap.put("molier", producto.getMolier());
             productoMap.put("valor", producto.getValor());
 
-            // Guardar el producto directamente en la colección "Carrito"
+            // Guardar el producto directamente en la colección "Carrito" en Firestore
             db.collection("Carrito").add(productoMap)
                     .addOnSuccessListener(documentReference -> {
                         Toast.makeText(v.getContext(), "Producto añadido al carrito: " + producto.getNombreComercial(), Toast.LENGTH_SHORT).show();
+
+                        // Almacenamiento local con SharedPreferences
+                        SharedPreferences sharedPreferences = v.getContext().getSharedPreferences("CarritoLocal", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                        // Convertir el producto a String (por ejemplo, en JSON)
+                        String productoJson = new Gson().toJson(productoMap); // Usamos Gson para convertir el objeto a JSON
+
+                        // Guardar el JSON en SharedPreferences
+                        editor.putString("producto_" + producto.getNombreComercial(), productoJson);
+                        editor.apply();  // Aplicamos los cambios
+
+                        Toast.makeText(v.getContext(), "Producto también guardado en almacenamiento local", Toast.LENGTH_SHORT).show();
                     })
                     .addOnFailureListener(e -> {
                         Toast.makeText(v.getContext(), "Error al añadir producto al carrito", Toast.LENGTH_SHORT).show();
                     });
         });
+
     }
 
     @Override

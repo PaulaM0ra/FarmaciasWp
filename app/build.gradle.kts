@@ -45,6 +45,8 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation(libs.firebase.firestore)
     implementation(libs.play.services.maps)
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -57,5 +59,9 @@ dependencies {
     implementation("com.google.firebase:firebase-storage:20.0.0")
     implementation("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+    implementation ("androidx.navigation:navigation-fragment:2.7.0")
+    implementation ("androidx.navigation:navigation-ui:2.7.0")
+    implementation ("com.google.code.gson:gson:2.8.8")
+
 }
     apply(plugin = "com.google.gms.google-services")
