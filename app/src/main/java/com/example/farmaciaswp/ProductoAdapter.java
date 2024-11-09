@@ -84,7 +84,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
                         editor.putString("producto_" + producto.getNombreComercial(), productoJson);
                         editor.apply();  // Aplicamos los cambios
 
-                        Toast.makeText(v.getContext(), "Producto también guardado en almacenamiento local", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(), "Producto guardado en el carrito", Toast.LENGTH_SHORT).show();
                     })
                     .addOnFailureListener(e -> {
                         Toast.makeText(v.getContext(), "Error al añadir producto al carrito", Toast.LENGTH_SHORT).show();

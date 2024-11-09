@@ -1,7 +1,9 @@
 package com.example.farmaciaswp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,39 +13,30 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CARRO extends AppCompatActivity {
+public class CARRO extends AppCompatActivity implements Adaptador.OnProductoEliminadoListener {
 
     private RecyclerView recyclerView;
     private Adaptador adaptador;
-    private List<ProductoCarrito> carritoList;  // Lista para los productos del carrito
-    private TextView txtTotal;  // TextView para mostrar el total del carrito
+    private List<ProductoCarrito> carritoList;
+    private TextView txtTotal;
+    private Button btnFinalizarCompra;
+    private double total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carro);
 
-        // Inicializar componentes de la vista
         recyclerView = findViewById(R.id.recyclerViewCarrito);
+        txtTotal = findViewById(R.id.txtTotal);
+        btnFinalizarCompra = findViewById(R.id.btnFinalizarCompra);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        txtTotal = findViewById(R.id.txtTotal);  // Referencia al TextView para el total
 
-        // Inicializar lista y adaptador
         carritoList = new ArrayList<>();
-        adaptador = new Adaptador(this, carritoList);
+        adaptador = new Adaptador(this, carritoList, this); // Pasamos la referencia de la actividad
         recyclerView.setAdapter(adaptador);
 
-        // Cargar productos del carrito desde SharedPreferences
-        cargarProductosCarrito();
-
-        // Actualizar el total cuando se carga la lista
-        actualizarTotal();
-
-        adaptador.notifyDataSetChanged();
-    }
-
-    // Método para cargar productos desde SharedPreferences
-    private void cargarProductosCarrito() {
+        // Cargar productos desde SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("CarritoLocal", MODE_PRIVATE);
         Gson gson = new Gson();
         for (String clave : sharedPreferences.getAll().keySet()) {
@@ -51,33 +44,37 @@ public class CARRO extends AppCompatActivity {
             ProductoCarrito producto = gson.fromJson(productoJson, ProductoCarrito.class);
             if (producto != null) {
                 carritoList.add(producto);
+                total += producto.getValor();
             }
         }
-    }
 
-    // Método para calcular y actualizar el total del carrito
-    private void actualizarTotal() {
-        double total = 0.0;
-        for (ProductoCarrito producto : carritoList) {
-            total += producto.getValor();  // Sumar el valor de cada producto en la lista
-        }
-        txtTotal.setText("Total: $" + String.format("%.2f", total));  // Mostrar el total en el TextView
-    }
-
-    // Método para eliminar un producto del carrito
-    private void eliminarProducto(ProductoCarrito producto) {
-        // Eliminar de SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("CarritoLocal", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove(producto.getNombreComercial());
-        editor.apply();
-
-        // Eliminar de la lista y actualizar la vista
-        carritoList.remove(producto);
+        txtTotal.setText("Total: $" + String.format("%.2f", total));
         adaptador.notifyDataSetChanged();
 
-        // Actualizar el total después de eliminar el producto
-        actualizarTotal();
-        Toast.makeText(this, "Producto eliminado", Toast.LENGTH_SHORT).show();
+        // Configuración del botón "Finalizar Compra"
+        btnFinalizarCompra.setOnClickListener(v -> finalizarCompra());
+    }
+
+    @Override
+    public void onProductoEliminado(ProductoCarrito producto) {
+        // Actualizar el total al eliminar un producto
+        total -= producto.getValor();
+        txtTotal.setText("Total: $" + String.format("%.2f", total));
+    }
+
+    private void finalizarCompra() {
+        // Mostrar mensaje de confirmación y cambiar de actividad
+        Toast.makeText(this, "Compra finalizada por un total de $" + String.format("%.2f", total), Toast.LENGTH_SHORT).show();
+
+        // Borrar todos los productos del carrito en SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("CarritoLocal", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear(); // Limpia todo el almacenamiento del carrito
+        editor.apply();
+
+        // Redirigir a la actividad de registro del cliente
+        Intent intent = new Intent(CARRO.this, RegisClientActivity.class);
+        startActivity(intent);
+        finish(); // Cierra la actividad actual
     }
 }

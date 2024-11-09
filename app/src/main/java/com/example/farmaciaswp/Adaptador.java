@@ -18,11 +18,13 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ProductoViewHolder
 
     private List<ProductoCarrito> carritoList;
     private Context context;
+    private OnProductoEliminadoListener productoEliminadoListener;
 
-    // Constructor del adaptador que recibe el contexto y la lista de productos
-    public Adaptador(Context context, List<ProductoCarrito> carritoList) {
+    // Constructor del adaptador que recibe el contexto, la lista de productos y el listener
+    public Adaptador(Context context, List<ProductoCarrito> carritoList, OnProductoEliminadoListener listener) {
         this.context = context;
         this.carritoList = carritoList;
+        this.productoEliminadoListener = listener;
     }
 
     @NonNull
@@ -53,6 +55,11 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ProductoViewHolder
             eliminarProductoDeStorage(producto);
             carritoList.remove(position);
             notifyItemRemoved(position);
+
+            // Notificar a la actividad para que actualice el total
+            if (productoEliminadoListener != null) {
+                productoEliminadoListener.onProductoEliminado(producto);
+            }
         });
     }
 
@@ -65,8 +72,13 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ProductoViewHolder
     private void eliminarProductoDeStorage(ProductoCarrito producto) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("CarritoLocal", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove(producto.getNombreComercial());
+        editor.remove(producto.getNombreComercial()); // Usa el nombre como clave
         editor.apply();
+    }
+
+    // Interfaz para notificar a la actividad que un producto ha sido eliminado
+    public interface OnProductoEliminadoListener {
+        void onProductoEliminado(ProductoCarrito producto);
     }
 
     // ViewHolder que contiene las vistas de cada elemento del RecyclerView
