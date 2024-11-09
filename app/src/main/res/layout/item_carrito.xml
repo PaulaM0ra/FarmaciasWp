@@ -1,61 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:elevation="4dp"
+    android:layout_marginBottom="8dp">
 
     <!-- Imagen del producto -->
     <ImageView
         android:id="@+id/imgProducto"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="121dp"
+        android:layout_height="99dp"
+        android:layout_marginEnd="12dp"
         android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtNombreComercial"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Nombre del producto -->
-    <TextView
-        android:id="@+id/txtNombreComercial"
+    <!-- Contenedor de texto y botón -->
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Nombre del Producto"
-        android:textSize="16sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/imgProducto"
         app:layout_constraintEnd_toEndOf="parent"
-        android:paddingStart="8dp" />
+        android:paddingStart="8dp"
+        android:layout_marginStart="8dp">
 
-    <!-- Presentación del producto -->
-    <TextView
-        android:id="@+id/txtPresentacion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Presentación"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/txtNombreComercial"
-        app:layout_constraintStart_toStartOf="@id/txtNombreComercial"
-        app:layout_constraintEnd_toEndOf="@id/txtNombreComercial" />
+        <!-- Nombre Comercial -->
+        <TextView
+            android:id="@+id/txtNombreComercial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Producto"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
 
-    <!-- Valor del producto -->
-    <TextView
-        android:id="@+id/txtValor"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Valor"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/txtPresentacion"
-        app:layout_constraintStart_toStartOf="@id/txtPresentacion"
-        app:layout_constraintEnd_toEndOf="@id/txtPresentacion" />
+        <!-- Presentación del Producto -->
+        <TextView
+            android:id="@+id/txtPresentacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Presentación"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray" />
 
-    <!-- Botón para eliminar el producto -->
+        <!-- Valor del Producto -->
+        <TextView
+            android:id="@+id/txtValor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valor: $0.00"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_marginTop="8dp" />
+
+        <!-- Cantidad de Producto -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
+
+            <!-- Botón para disminuir la cantidad -->
+            <Button
+                android:id="@+id/btnMenos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/darker_gray"
+                android:layout_marginEnd="8dp" />
+
+            <!-- TextView para mostrar la cantidad -->
+            <TextView
+                android:id="@+id/txtCantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Botón para aumentar la cantidad -->
+            <Button
+                android:id="@+id/btnMas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/darker_gray"
+                android:text="+"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botón de eliminar -->
     <Button
         android:id="@+id/buttonEliminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Eliminar"
+        android:layout_width="102dp"
+        android:layout_height="38dp"
         android:backgroundTint="@color/button_blue"
-        app:layout_constraintTop_toBottomOf="@id/txtValor"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="Eliminar"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgProducto"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -125,7 +125,7 @@
         android:layout_height="58dp"
         android:backgroundTint="@color/button_blue"
         android:padding="12dp"
-        android:text="@string/hint_Next"
+        android:text="Ver Catalogo"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

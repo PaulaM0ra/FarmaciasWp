@@ -5,17 +5,18 @@ public class ProductoCarrito {
     private String presentacion;
     private String imagen;
     private double valor;
+    private int cantidad;  // Añadido para manejar la cantidad
 
-
-    public ProductoCarrito(String nombreComercial, String presentacion, String imagen, String molier, double valor, int cantidad) {
+    // Constructor actualizado
+    public ProductoCarrito(String nombreComercial, String presentacion, String imagen, double valor, int cantidad) {
         this.nombreComercial = nombreComercial;
         this.presentacion = presentacion;
         this.imagen = imagen;
-
         this.valor = valor;
-
+        this.cantidad = cantidad;  // Asignación de la cantidad
     }
 
+    // Métodos getter y setter
     public String getNombreComercial() {
         return nombreComercial;
     }
@@ -28,11 +29,15 @@ public class ProductoCarrito {
         return imagen;
     }
 
-
-
     public double getValor() {
         return valor;
     }
 
+    public int getCantidad() {
+        return cantidad;  // Getter para cantidad
+    }
 
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;  // Setter para cantidad
+    }
 }

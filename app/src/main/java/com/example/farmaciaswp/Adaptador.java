@@ -19,12 +19,14 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ProductoViewHolder
     private List<ProductoCarrito> carritoList;
     private Context context;
     private OnProductoEliminadoListener productoEliminadoListener;
+    private OnCantidadCambiadaListener cantidadCambiadaListener;
 
-    // Constructor del adaptador que recibe el contexto, la lista de productos y el listener
-    public Adaptador(Context context, List<ProductoCarrito> carritoList, OnProductoEliminadoListener listener) {
+    // Constructor del adaptador que recibe el contexto, la lista de productos, el listener para eliminación y el listener para cantidad
+    public Adaptador(Context context, List<ProductoCarrito> carritoList, OnProductoEliminadoListener listener, OnCantidadCambiadaListener cantidadCambiadaListener) {
         this.context = context;
         this.carritoList = carritoList;
         this.productoEliminadoListener = listener;
+        this.cantidadCambiadaListener = cantidadCambiadaListener;
     }
 
     @NonNull
@@ -42,12 +44,15 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ProductoViewHolder
         // Establecer los valores del producto en las vistas
         holder.txtNombreComercial.setText(producto.getNombreComercial());
         holder.txtPresentacion.setText(producto.getPresentacion());
-        holder.txtValor.setText(String.valueOf(producto.getValor()));
+        holder.txtValor.setText("$" + String.format("%.2f", producto.getValor() * producto.getCantidad()));
 
         // Cargar la imagen usando Glide
         Glide.with(holder.imgProducto.getContext())
                 .load(producto.getImagen())
                 .into(holder.imgProducto);
+
+        // Mostrar la cantidad en el TextView
+        holder.txtCantidad.setText(String.valueOf(producto.getCantidad()));
 
         // Configurar el botón de eliminar
         holder.buttonEliminar.setOnClickListener(v -> {
@@ -59,6 +64,32 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ProductoViewHolder
             // Notificar a la actividad para que actualice el total
             if (productoEliminadoListener != null) {
                 productoEliminadoListener.onProductoEliminado(producto);
+            }
+        });
+
+        // Configurar el botón de "Menos"
+        holder.btnMenos.setOnClickListener(v -> {
+            if (producto.getCantidad() > 1) {
+                producto.setCantidad(producto.getCantidad() - 1);
+                holder.txtCantidad.setText(String.valueOf(producto.getCantidad()));
+                notifyItemChanged(position);
+
+                // Notificar a la actividad sobre el cambio de cantidad
+                if (cantidadCambiadaListener != null) {
+                    cantidadCambiadaListener.onCantidadCambiada();
+                }
+            }
+        });
+
+        // Configurar el botón de "Más"
+        holder.btnMas.setOnClickListener(v -> {
+            producto.setCantidad(producto.getCantidad() + 1);
+            holder.txtCantidad.setText(String.valueOf(producto.getCantidad()));
+            notifyItemChanged(position);
+
+            // Notificar a la actividad sobre el cambio de cantidad
+            if (cantidadCambiadaListener != null) {
+                cantidadCambiadaListener.onCantidadCambiada();
             }
         });
     }
@@ -81,11 +112,16 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ProductoViewHolder
         void onProductoEliminado(ProductoCarrito producto);
     }
 
+    // Interfaz para notificar a la actividad sobre el cambio de cantidad
+    public interface OnCantidadCambiadaListener {
+        void onCantidadCambiada();
+    }
+
     // ViewHolder que contiene las vistas de cada elemento del RecyclerView
     public static class ProductoViewHolder extends RecyclerView.ViewHolder {
-        TextView txtNombreComercial, txtPresentacion, txtValor;
+        TextView txtNombreComercial, txtPresentacion, txtValor, txtCantidad;
         ImageView imgProducto;
-        Button buttonEliminar;
+        Button buttonEliminar, btnMas, btnMenos;
 
         public ProductoViewHolder(View itemView) {
             super(itemView);
@@ -93,7 +129,11 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ProductoViewHolder
             txtNombreComercial = itemView.findViewById(R.id.txtNombreComercial);
             txtPresentacion = itemView.findViewById(R.id.txtPresentacion);
             txtValor = itemView.findViewById(R.id.txtValor);
+            txtCantidad = itemView.findViewById(R.id.txtCantidad);
             buttonEliminar = itemView.findViewById(R.id.buttonEliminar);
+            btnMas = itemView.findViewById(R.id.btnMas);
+            btnMenos = itemView.findViewById(R.id.btnMenos);
         }
     }
 }
+

@@ -53,7 +53,7 @@ public class RegisClientActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisClientActivity.this, MainActivity.class);
+                Intent intent = new Intent(RegisClientActivity.this, Catalogo_Productos.class);
                 startActivity(intent);
                 finish();
             }

@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CARRO extends AppCompatActivity implements Adaptador.OnProductoEliminadoListener {
+public class CARRO extends AppCompatActivity implements Adaptador.OnProductoEliminadoListener, Adaptador.OnCantidadCambiadaListener {
 
     private RecyclerView recyclerView;
     private Adaptador adaptador;
@@ -33,7 +33,7 @@ public class CARRO extends AppCompatActivity implements Adaptador.OnProductoElim
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         carritoList = new ArrayList<>();
-        adaptador = new Adaptador(this, carritoList, this); // Pasamos la referencia de la actividad
+        adaptador = new Adaptador(this, carritoList, this, this); // Pasamos la referencia de la actividad
         recyclerView.setAdapter(adaptador);
 
         // Cargar productos desde SharedPreferences
@@ -44,10 +44,11 @@ public class CARRO extends AppCompatActivity implements Adaptador.OnProductoElim
             ProductoCarrito producto = gson.fromJson(productoJson, ProductoCarrito.class);
             if (producto != null) {
                 carritoList.add(producto);
-                total += producto.getValor();
+                total += producto.getValor() * producto.getCantidad(); // Calculamos el total con la cantidad
             }
         }
 
+        // Mostrar el total calculado
         txtTotal.setText("Total: $" + String.format("%.2f", total));
         adaptador.notifyDataSetChanged();
 
@@ -58,7 +59,17 @@ public class CARRO extends AppCompatActivity implements Adaptador.OnProductoElim
     @Override
     public void onProductoEliminado(ProductoCarrito producto) {
         // Actualizar el total al eliminar un producto
-        total -= producto.getValor();
+        total -= producto.getValor() * producto.getCantidad(); // Descontamos la cantidad del total
+        txtTotal.setText("Total: $" + String.format("%.2f", total));
+    }
+
+    @Override
+    public void onCantidadCambiada() {
+        // Actualizar el total cuando cambie la cantidad de cualquier producto
+        total = 0; // Reiniciamos el total
+        for (ProductoCarrito producto : carritoList) {
+            total += producto.getValor() * producto.getCantidad(); // Recalculamos el total
+        }
         txtTotal.setText("Total: $" + String.format("%.2f", total));
     }
 
