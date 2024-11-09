@@ -81,16 +81,15 @@ public class Buscar extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        Log.d("Buscar", "Document data: " + documentSnapshot.getData());
                         if (documentSnapshot.exists()) {
+                            // Obtener el producto
                             Producto producto = documentSnapshot.toObject(Producto.class);
                             mostrarInformacionProducto(producto);
                         } else {
                             Toast.makeText(Buscar.this, "Producto no encontrado", Toast.LENGTH_SHORT).show();
                         }
-                        progressBar.setVisibility(View.GONE);
+                        progressBar.setVisibility(View.GONE); // Ocultar el ProgressBar
                     }
-
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
