@@ -5,108 +5,130 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:elevation="4dp">
 
+    <!-- Imagen del Producto -->
     <ImageView
         android:id="@+id/imgProducto"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="150dp"
         android:contentDescription="@string/imagen_del_producto2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/txtNombreComercial"
-        android:scaleType="centerInside"
-        android:layout_marginBottom="8dp"/>
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:clipToOutline="true"
+        android:outlineProvider="background" />
 
+    <!-- Nombre Comercial (destacado) -->
     <TextView
         android:id="@+id/txtNombreComercial"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/nombre_comercial2"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/imgProducto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="8dp" />
 
+    <!-- Nombre Genérico -->
     <TextView
         android:id="@+id/txtNombreGenerico"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/nombre_gen_rico2"
         android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@id/txtNombreComercial"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="4dp" />
 
+    <!-- Concentración -->
     <TextView
         android:id="@+id/txtConcentracion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/concentraci_n2"
         android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@id/txtNombreGenerico"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="4dp" />
 
+    <!-- Presentación -->
     <TextView
         android:id="@+id/txtPresentacion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/presentaci_n1"
         android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@id/txtConcentracion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="4dp" />
 
+    <!-- Registro INVIMA -->
     <TextView
         android:id="@+id/txtRegistroInvima"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/registro_invima2"
         android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@id/txtPresentacion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="4dp" />
 
+    <!-- Lote -->
     <TextView
         android:id="@+id/txtLote"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/lote2"
         android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@id/txtRegistroInvima"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="4dp" />
 
+    <!-- Valor -->
     <TextView
         android:id="@+id/txtValor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/valor2"
-        android:textSize="14sp"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_green_dark"
         app:layout_constraintTop_toBottomOf="@id/txtLote"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:paddingTop="4dp" />
+        android:paddingTop="8dp" />
 
     <!-- Botón "Adquirir" -->
     <Button
         android:id="@+id/buttonAdquirir"
-        android:layout_width="264dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/button_blue"
-        android:backgroundTintMode="src_over"
-        android:text="@string/adquirir"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtValor" />
+        android:background="@color/button_blue" android:text="@string/adquirir"
+
+    android:textColor="@android:color/white"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/txtValor" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
