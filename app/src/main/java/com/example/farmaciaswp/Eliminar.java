@@ -56,7 +56,7 @@ public class Eliminar extends AppCompatActivity {
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE); // Mostrar el ProgressBar durante la operación
+        progressBar.setVisibility(View.VISIBLE);
         db.collection("PRODUCTOSWP").document(molier)
                 .delete()
                 .addOnSuccessListener(aVoid -> {

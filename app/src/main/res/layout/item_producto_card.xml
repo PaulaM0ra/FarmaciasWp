@@ -9,7 +9,7 @@
     android:background="@android:color/white"
     android:elevation="4dp">
 
-    <!-- Imagen del Producto -->
+
     <ImageView
         android:id="@+id/imgProducto"
         android:layout_width="0dp"
@@ -25,7 +25,7 @@
         android:clipToOutline="true"
         android:outlineProvider="background" />
 
-    <!-- Nombre Comercial (destacado) -->
+
     <TextView
         android:id="@+id/txtNombreComercial"
         android:layout_width="0dp"
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="8dp" />
 
-    <!-- Nombre Genérico -->
+
     <TextView
         android:id="@+id/txtNombreGenerico"
         android:layout_width="0dp"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="4dp" />
 
-    <!-- Concentración -->
+
     <TextView
         android:id="@+id/txtConcentracion"
         android:layout_width="0dp"
@@ -65,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="4dp" />
 
-    <!-- Presentación -->
+
     <TextView
         android:id="@+id/txtPresentacion"
         android:layout_width="0dp"
@@ -78,7 +78,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="4dp" />
 
-    <!-- Registro INVIMA -->
     <TextView
         android:id="@+id/txtRegistroInvima"
         android:layout_width="0dp"
@@ -91,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="4dp" />
 
-    <!-- Lote -->
+
     <TextView
         android:id="@+id/txtLote"
         android:layout_width="0dp"
@@ -104,7 +103,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="4dp" />
 
-    <!-- Valor -->
     <TextView
         android:id="@+id/txtValor"
         android:layout_width="0dp"
@@ -117,7 +115,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingTop="8dp" />
 
-    <!-- Botón "Adquirir" -->
     <Button
         android:id="@+id/buttonAdquirir"
         android:layout_width="0dp"

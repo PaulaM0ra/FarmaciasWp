@@ -27,7 +27,7 @@ public class Catalogo_Productos extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductoAdapter productoAdapter;
     private List<Producto> listaProductos;
-    private FirebaseFirestore db; // Declarar Firestore
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,22 +35,22 @@ public class Catalogo_Productos extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_catalogo_productos);
 
-        // Inicializar Firestore
+
         db = FirebaseFirestore.getInstance();
 
-        // Configuración de las barras del sistema
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Configurar RecyclerView
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         listaProductos = new ArrayList<>();
-        cargarProductos(); // Cargar productos desde Firestore
+        cargarProductos();
 
         productoAdapter = new ProductoAdapter(listaProductos);
         recyclerView.setAdapter(productoAdapter);
@@ -84,17 +84,17 @@ public class Catalogo_Productos extends AppCompatActivity {
     }
 
     private void cargarProductos() {
-        CollectionReference productosRef = db.collection("PRODUCTOSWP"); // Referencia a la colección
+        CollectionReference productosRef = db.collection("PRODUCTOSWP");
 
         productosRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 for (QueryDocumentSnapshot document : task.getResult()) {
-                    // Crear un objeto Producto a partir de los datos de Firestore
+
                     Producto producto = document.toObject(Producto.class);
-                    producto.setMolier(document.getId()); // Asignar el ID (molier)
+                    producto.setMolier(document.getId());
                     listaProductos.add(producto);
                 }
-                productoAdapter.notifyDataSetChanged(); // Notificar al adaptador que los datos han cambiado
+                productoAdapter.notifyDataSetChanged();
             } else {
                 Toast.makeText(Catalogo_Productos.this, "Error al cargar productos", Toast.LENGTH_SHORT).show();
             }

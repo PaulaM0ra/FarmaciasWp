@@ -1,23 +1,23 @@
 package com.example.farmaciaswp;
 
 public class Producto {
-    // Atributos de la clase
-    private String imagen; // Cambiado a String para almacenar la URL de la imagen
-    private String nombreComercial; // Nombre comercial del producto
-    private String nombreGenerico; // Nombre genérico del producto
-    private String concentracion; // Concentración del producto
-    private String presentacion; // Presentación del producto (tabletas, líquido, etc.)
-    private String registroInvima; // Registro INVIMA del producto
-    private String lote; // Lote del producto
-    private String valor; // Valor o precio del producto
-    private String molier; // Número único de identificación (molier)
+
+    private String imagen;
+    private String nombreComercial;
+    private String nombreGenerico;
+    private String concentracion;
+    private String presentacion;
+    private String registroInvima;
+    private String lote;
+    private String valor;
+    private String molier;
 
     // Constructor de la clase
     public Producto(String nombreComercial, String nombreGenerico,
                     String concentracion, String presentacion,
                     String registroInvima, String lote, String valor,
-                    String imagen, String molier) { // Cambiado a String
-        this.imagen = imagen; // Asiar URL de la imagen
+                    String imagen, String molier) {
+        this.imagen = imagen;
         this.nombreComercial = nombreComercial;
         this.nombreGenerico = nombreGenerico;
         this.concentracion = concentracion;
@@ -25,17 +25,16 @@ public class Producto {
         this.registroInvima = registroInvima;
         this.lote = lote;
         this.valor = valor;
-        this.molier = molier; // Asignar el valor de molier
+        this.molier = molier;
     }
 
-    // Constructor vacío para Firestore
+
     public Producto() {
-        // Constructor vacío necesario para Firestore
+
     }
 
-    // Métodos getter para acceder a los atributos
     public String getImagen() {
-        return imagen; // Cambiado para devolver String
+        return imagen;
     }
 
     public String getNombreComercial() {
@@ -70,7 +69,7 @@ public class Producto {
         return molier; //
     }
 
-    // Método setter para el molier
+
     public void setMolier(String molier) {
         this.molier = molier; // Asignar el valor de molier
     }

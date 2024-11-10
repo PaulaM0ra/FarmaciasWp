@@ -9,7 +9,6 @@
     android:elevation="4dp"
     android:layout_marginBottom="8dp">
 
-    <!-- Imagen del producto -->
     <ImageView
         android:id="@+id/imgProducto"
         android:layout_width="121dp"
@@ -20,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Contenedor de texto y botón -->
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="0dp"
@@ -31,7 +30,7 @@
         android:paddingStart="8dp"
         android:layout_marginStart="8dp">
 
-        <!-- Nombre Comercial -->
+
         <TextView
             android:id="@+id/txtNombreComercial"
             android:layout_width="wrap_content"
@@ -41,7 +40,7 @@
             android:textStyle="bold"
             android:textColor="@android:color/black" />
 
-        <!-- Presentación del Producto -->
+
         <TextView
             android:id="@+id/txtPresentacion"
             android:layout_width="wrap_content"
@@ -50,7 +49,6 @@
             android:textSize="14sp"
             android:textColor="@android:color/darker_gray" />
 
-        <!-- Valor del Producto -->
         <TextView
             android:id="@+id/txtValor"
             android:layout_width="wrap_content"
@@ -60,7 +58,6 @@
             android:textColor="@android:color/holo_green_dark"
             android:layout_marginTop="8dp" />
 
-        <!-- Cantidad de Producto -->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
@@ -68,7 +65,7 @@
             android:gravity="center"
             android:layout_marginTop="8dp">
 
-            <!-- Botón para disminuir la cantidad -->
+
             <Button
                 android:id="@+id/btnMenos"
                 android:layout_width="wrap_content"
@@ -79,7 +76,7 @@
                 android:backgroundTint="@android:color/darker_gray"
                 android:layout_marginEnd="8dp" />
 
-            <!-- TextView para mostrar la cantidad -->
+
             <TextView
                 android:id="@+id/txtCantidad"
                 android:layout_width="wrap_content"
@@ -91,7 +88,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp" />
 
-            <!-- Botón para aumentar la cantidad -->
+
             <Button
                 android:id="@+id/btnMas"
                 android:layout_width="wrap_content"
@@ -103,7 +100,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Botón de eliminar -->
+
     <Button
         android:id="@+id/buttonEliminar"
         android:layout_width="102dp"

@@ -8,9 +8,7 @@
     android:layout_height="match_parent"
     android:padding="30dp">
 
-    <!-- Título -->
 
-    <!-- Número Molier (no editable) -->
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
@@ -26,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- EditText Fields -->
+
 
     <EditText
         android:id="@+id/molier"
@@ -103,7 +101,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Botones -->
+
 
     <Button
         android:id="@+id/buttonSeleccionarImagen"
@@ -160,7 +158,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- TextClock y ProgressBar -->
+
     <TextClock
         android:id="@+id/textClock"
         android:layout_width="wrap_content"

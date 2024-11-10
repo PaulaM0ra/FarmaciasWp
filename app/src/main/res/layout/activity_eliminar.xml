@@ -9,14 +9,7 @@
     android:padding="16dp"
     tools:context=".Eliminar">
 
-    <!-- Título -->
 
-    <!-- Ingreso del Molier del producto -->
-
-
-    <!-- Botón para eliminar el producto -->
-
-    <!-- Botón para volver -->
 
     <TextView
         android:id="@+id/textViewTitle"

@@ -59,30 +59,30 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         holder.txtLote.setText(producto.getLote());
         holder.txtValor.setText(producto.getValor());
 
-        // Configurar el listener del botón "Adquirir"
+
         holder.buttonAdquirir.setOnClickListener(v -> {
-            // Crear un mapa de los datos limitados del producto
+
             Map<String, Object> productoMap = new HashMap<>();
             productoMap.put("nombreComercial", producto.getNombreComercial());
             productoMap.put("presentacion", producto.getPresentacion());
             productoMap.put("imagen", producto.getImagen());
             productoMap.put("valor", producto.getValor());
 
-            // Guardar el producto directamente en la colección "Carrito" en Firestore
+
             db.collection("Carrito").add(productoMap)
                     .addOnSuccessListener(documentReference -> {
                         Toast.makeText(v.getContext(), "Producto añadido al carrito: " + producto.getNombreComercial(), Toast.LENGTH_SHORT).show();
 
-                        // Almacenamiento local con SharedPreferences
+
                         SharedPreferences sharedPreferences = v.getContext().getSharedPreferences("CarritoLocal", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                        // Convertir el producto a String (por ejemplo, en JSON)
-                        String productoJson = new Gson().toJson(productoMap); // Usamos Gson para convertir el objeto a JSON
 
-                        // Guardar el JSON en SharedPreferences
+                        String productoJson = new Gson().toJson(productoMap);
+
+
                         editor.putString("producto_" + producto.getNombreComercial(), productoJson);
-                        editor.apply();  // Aplicamos los cambios
+                        editor.apply();
 
                         Toast.makeText(v.getContext(), "Producto guardado en el carrito", Toast.LENGTH_SHORT).show();
                     })

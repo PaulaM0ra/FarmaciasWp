@@ -31,12 +31,11 @@ public class Buscar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buscar); // Asegúrate de que el nombre del layout sea correcto
+        setContentView(R.layout.activity_buscar);
 
-        // Inicializar Firestore
         firestore = FirebaseFirestore.getInstance();
 
-        // Inicializar vistas
+
         inputMolier = findViewById(R.id.inputMolier);
         buttonBuscar = findViewById(R.id.buttonBuscar);
         buttonVolverBuscar = findViewById(R.id.buttonVolverBuscar);
@@ -45,7 +44,6 @@ public class Buscar extends AppCompatActivity {
         informacionProducto = findViewById(R.id.informacionProducto);
         progressBar = findViewById(R.id.progressBar8);
 
-        // Configurar el botón de búsqueda
         buttonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,11 +51,11 @@ public class Buscar extends AppCompatActivity {
             }
         });
 
-        // Configurar el botón de volver
+
         buttonVolverBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Cierra la actividad actual
+                finish();
             }
         });
     }
@@ -65,16 +63,15 @@ public class Buscar extends AppCompatActivity {
     private void buscarProducto() {
         String molierInput = inputMolier.getText().toString().trim();
 
-        // Validar que el input no esté vacío
+
         if (molierInput.isEmpty()) {
             Toast.makeText(this, "Por favor, ingrese un número molier", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE); // Mostrar el ProgressBar
-        resultadosContainer.setVisibility(View.GONE); // Ocultar resultados inicialmente
+        progressBar.setVisibility(View.VISIBLE);
+        resultadosContainer.setVisibility(View.GONE);
 
-        // Buscar el producto en Firestore
         firestore.collection("PRODUCTOSWP")
                 .document(molierInput)
                 .get()
@@ -82,13 +79,13 @@ public class Buscar extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists()) {
-                            // Obtener el producto
+
                             Producto producto = documentSnapshot.toObject(Producto.class);
                             mostrarInformacionProducto(producto);
                         } else {
                             Toast.makeText(Buscar.this, "Producto no encontrado", Toast.LENGTH_SHORT).show();
                         }
-                        progressBar.setVisibility(View.GONE); // Ocultar el ProgressBar
+                        progressBar.setVisibility(View.GONE);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -96,14 +93,14 @@ public class Buscar extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         String errorMessage = "Error al buscar en Firestore: " + e.getMessage();
                         Toast.makeText(Buscar.this, errorMessage, Toast.LENGTH_SHORT).show();
-                        Log.e("FirestoreError", errorMessage, e); // Agrega el objeto de excepción para más detalles
-                        progressBar.setVisibility(View.GONE); // Ocultar el ProgressBar
+                        Log.e("FirestoreError", errorMessage, e);
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
     }
 
     private void mostrarInformacionProducto(Producto producto) {
-        resultadosContainer.setVisibility(View.VISIBLE); // Mostrar el contenedor de resultados
+        resultadosContainer.setVisibility(View.VISIBLE);
         resultadoBuscar.setText(getString(R.string.resultado_de_la_b_squeda) + ": " + producto.getNombreComercial());
         informacionProducto.setText("Nombre Genérico: " + producto.getNombreGenerico() + "\n" +
                 "Concentración: " + producto.getConcentracion() + "\n" +

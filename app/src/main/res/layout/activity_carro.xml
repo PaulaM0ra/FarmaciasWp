@@ -8,7 +8,7 @@
     android:padding="16dp"
     tools:context=".CARRO">
 
-    <!-- Título del carrito de compras -->
+
     <TextView
         android:id="@+id/txtTituloCarrito"
         android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- RecyclerView para mostrar los productos del carrito -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCarrito"
         android:layout_width="0dp"
@@ -33,7 +33,7 @@
         app:layout_constraintBottom_toTopOf="@id/viewSeparator"
         android:layout_marginTop="8dp" />
 
-    <!-- Separador visual entre los productos y el resumen -->
+
     <View
         android:id="@+id/viewSeparator"
         android:layout_width="0dp"
@@ -46,7 +46,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp" />
 
-    <!-- Layout para el resumen de la compra -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutResumenCompra"
         android:layout_width="match_parent"
@@ -58,7 +57,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Texto que muestra el total acumulado -->
         <TextView
             android:id="@+id/txtTotal"
             android:layout_width="wrap_content"
@@ -71,7 +69,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp" />
 
-        <!-- Botón para finalizar la compra -->
+
         <Button
             android:id="@+id/btnFinalizarCompra"
             android:layout_width="0dp"
