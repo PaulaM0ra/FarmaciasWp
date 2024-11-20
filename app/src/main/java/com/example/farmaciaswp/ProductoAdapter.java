@@ -10,47 +10,46 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
-import java.util.Map;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
+import java.util.Map;
 
 public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder> {
 
     private List<Producto> productos;
     private FirebaseFirestore db;
 
-    // Constructor del adaptador que recibe la lista de productos
+    // Constructor
     public ProductoAdapter(List<Producto> productos) {
         this.productos = productos;
-        db = FirebaseFirestore.getInstance(); // Inicializar Firestore
+        db = FirebaseFirestore.getInstance();
     }
 
     @NonNull
     @Override
     public ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflar el diseño del item de producto
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto_card, parent, false);
         return new ProductoViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
-        // Obtener el producto en la posición actual
         Producto producto = productos.get(position);
 
-        // Usar Glide para cargar la imagen desde la URL
+        // Cargar la imagen usando Glide
         Glide.with(holder.itemView.getContext())
                 .load(producto.getImagen())
                 .into(holder.imgProducto);
 
-        // Asignar los valores del producto a las vistas correspondientes
+        // Asignar valores a las vistas
         holder.txtNombreComercial.setText(producto.getNombreComercial());
         holder.txtNombreGenerico.setText(producto.getNombreGenerico());
         holder.txtConcentracion.setText(producto.getConcentracion());
@@ -59,38 +58,8 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         holder.txtLote.setText(producto.getLote());
         holder.txtValor.setText(producto.getValor());
 
-
-        holder.buttonAdquirir.setOnClickListener(v -> {
-
-            Map<String, Object> productoMap = new HashMap<>();
-            productoMap.put("nombreComercial", producto.getNombreComercial());
-            productoMap.put("presentacion", producto.getPresentacion());
-            productoMap.put("imagen", producto.getImagen());
-            productoMap.put("valor", producto.getValor());
-
-
-            db.collection("Carrito").add(productoMap)
-                    .addOnSuccessListener(documentReference -> {
-                        Toast.makeText(v.getContext(), "Producto añadido al carrito: " + producto.getNombreComercial(), Toast.LENGTH_SHORT).show();
-
-
-                        SharedPreferences sharedPreferences = v.getContext().getSharedPreferences("CarritoLocal", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-
-                        String productoJson = new Gson().toJson(productoMap);
-
-
-                        editor.putString("producto_" + producto.getNombreComercial(), productoJson);
-                        editor.apply();
-
-                        Toast.makeText(v.getContext(), "Producto guardado en el carrito", Toast.LENGTH_SHORT).show();
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(v.getContext(), "Error al añadir producto al carrito", Toast.LENGTH_SHORT).show();
-                    });
-        });
-
+        // Configurar el botón "Adquirir"
+        holder.buttonAdquirir.setOnClickListener(v -> añadirProductoAlCarrito(v, producto));
     }
 
     @Override
@@ -98,6 +67,42 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         return productos.size();
     }
 
+    // Método para añadir productos al carrito
+    private void añadirProductoAlCarrito(View v, Producto producto) {
+        Map<String, Object> productoMap = new HashMap<>();
+        productoMap.put("nombreComercial", producto.getNombreComercial());
+        productoMap.put("presentacion", producto.getPresentacion());
+        productoMap.put("imagen", producto.getImagen());
+        productoMap.put("valor", producto.getValor());
+
+        db.collection("Carrito").add(productoMap)
+                .addOnSuccessListener(documentReference -> {
+                    guardarProductoLocal(v, productoMap, producto);
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(v.getContext(), "Error al añadir producto al carrito: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    // Método para guardar producto localmente usando SharedPreferences
+    private void guardarProductoLocal(View v, Map<String, Object> productoMap, Producto producto) {
+        SharedPreferences sharedPreferences = v.getContext().getSharedPreferences("CarritoLocal", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        String productoJson = new Gson().toJson(productoMap);
+        editor.putString("producto_" + producto.getNombreComercial(), productoJson);
+        editor.apply();
+
+        Toast.makeText(v.getContext(), "Producto añadido al carrito: " + producto.getNombreComercial(), Toast.LENGTH_SHORT).show();
+    }
+
+    // Método para actualizar la lista de productos en el adaptador
+    public void actualizarLista(List<Producto> nuevaLista) {
+        this.productos = nuevaLista;
+        notifyDataSetChanged();
+    }
+
+    // Clase interna para el ViewHolder
     public static class ProductoViewHolder extends RecyclerView.ViewHolder {
         ImageView imgProducto;
         TextView txtNombreComercial;

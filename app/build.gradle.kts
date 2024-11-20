@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.play.services.maps)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.car.ui.lib)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -62,6 +63,11 @@ dependencies {
     implementation ("androidx.navigation:navigation-fragment:2.7.0")
     implementation ("androidx.navigation:navigation-ui:2.7.0")
     implementation ("com.google.code.gson:gson:2.8.8")
+    implementation ("com.google.android.material:material:1.11.0")
+
+    implementation ("androidx.recyclerview:recyclerview:1.3.1") // Última versión en el momento
+
+    implementation ("androidx.appcompat:appcompat:1.7.0")
 
 }
     apply(plugin = "com.google.gms.google-services")

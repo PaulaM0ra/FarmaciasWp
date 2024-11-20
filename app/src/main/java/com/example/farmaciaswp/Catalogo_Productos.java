@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.SearchView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,6 +55,20 @@ public class Catalogo_Productos extends AppCompatActivity {
 
         productoAdapter = new ProductoAdapter(listaProductos);
         recyclerView.setAdapter(productoAdapter);
+        SearchView searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Opcional: Acción al presionar "Buscar"
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filtrarProductos(newText); // Filtra en tiempo real
+                return true;
+            }
+        });
 
         Button buttonCRUD = findViewById(R.id.button5);
         buttonCRUD.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +96,18 @@ public class Catalogo_Productos extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void filtrarProductos(String texto) {
+        List<Producto> productosFiltrados = new ArrayList<>();
+        for (Producto producto : listaProductos) {
+            if (producto.getNombreComercial().toLowerCase().contains(texto.toLowerCase())
+                    || producto.getNombreGenerico().toLowerCase().contains(texto.toLowerCase())) {
+                productosFiltrados.add(producto);
+            }
+        }
+
+        productoAdapter.actualizarLista(productosFiltrados);
     }
 
     private void cargarProductos() {
