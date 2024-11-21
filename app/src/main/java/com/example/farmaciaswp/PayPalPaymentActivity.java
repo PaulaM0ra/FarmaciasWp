@@ -25,11 +25,18 @@ public class PayPalPaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_pal_payment);
 
-        // 1. Vincular elementos del diseño XML
+        // Vincular elementos del diseño XML
         etPaymentAmount = findViewById(R.id.etPaymentAmount);
         btnProceedPayment = findViewById(R.id.btnProceedPayment);
 
-        // 2. Configurar la acción del botón
+        // Recuperar el valor del total enviado desde la actividad anterior
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("total_compra")) {
+            double totalCompra = intent.getDoubleExtra("total_compra", 0.0);
+            etPaymentAmount.setText(String.format("%.2f", totalCompra)); // Mostrar el monto en el campo de texto
+        }
+
+        // Configurar la acción del botón
         btnProceedPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +56,6 @@ public class PayPalPaymentActivity extends AppCompatActivity {
             }
         });
     }
-
     private void processPayment(String amount) {
         // 3. Configurar las credenciales de PayPal (sandbox)
         String clientId = "AdMtfWtNXB_UhPfLe4AN7y24OHk27byiRBan_UurZk41J6eklXwpsIiI_OjMeURk7-CIPjJtBG7BURZ6";

@@ -82,8 +82,8 @@ public class CARRO extends AppCompatActivity implements Adaptador.OnProductoElim
         editor.clear();
         editor.apply();
 
-
         Intent intent = new Intent(CARRO.this, PayPalPaymentActivity.class);
+        intent.putExtra("total_compra", total); // Enviar el valor total a la siguiente actividad
         startActivity(intent);
         finish();
     }
