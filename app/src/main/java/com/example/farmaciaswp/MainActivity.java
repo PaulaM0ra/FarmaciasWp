@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
                                     FirebaseUser user = mAuth.getCurrentUser();
 
-                                    Intent intent = new Intent(MainActivity.this, Catalogo_Productos.class);
+                                    Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(MainActivity.this, "Error de inicio de sesión: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Catalogo_Productos.class);
+                Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
                 startActivity(intent);
             }
         });

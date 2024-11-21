@@ -83,7 +83,7 @@ public class CARRO extends AppCompatActivity implements Adaptador.OnProductoElim
         editor.apply();
 
 
-        Intent intent = new Intent(CARRO.this, RegisClientActivity.class);
+        Intent intent = new Intent(CARRO.this, PayPalPaymentActivity.class);
         startActivity(intent);
         finish();
     }
