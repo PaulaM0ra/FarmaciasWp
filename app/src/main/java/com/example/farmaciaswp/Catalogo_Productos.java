@@ -70,14 +70,6 @@ public class Catalogo_Productos extends AppCompatActivity {
             }
         });
 
-        Button buttonCRUD = findViewById(R.id.button5);
-        buttonCRUD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Catalogo_Productos.this, ProductActivity.class);
-                startActivity(intent);
-            }
-        });
 
         Button buttonCarrito = findViewById(R.id.button3);
         buttonCarrito.setOnClickListener(new View.OnClickListener() {
@@ -88,14 +80,7 @@ public class Catalogo_Productos extends AppCompatActivity {
             }
         });
 
-        Button buttonmapa = findViewById(R.id.button6);
-        buttonmapa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Catalogo_Productos.this, LocationActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     private void filtrarProductos(String texto) {

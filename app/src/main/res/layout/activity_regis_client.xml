@@ -119,6 +119,8 @@
         app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress2" />
 
     <!-- Segundo Botón -->
+
+    <!-- Progress Bar -->
     <Button
         android:id="@+id/Button18"
         android:layout_width="108dp"
@@ -129,11 +131,10 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/register_button" />
 
-    <!-- Progress Bar -->
     <ProgressBar
         android:id="@+id/progressBar6"
         style="?android:attr/progressBarStyleHorizontal"
@@ -145,17 +146,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Button18"
         android:layout_marginBottom="16dp"/>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.864" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

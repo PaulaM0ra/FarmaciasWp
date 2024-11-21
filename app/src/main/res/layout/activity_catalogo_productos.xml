@@ -67,22 +67,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="138dp"
-        android:layout_height="55dp"
-        android:backgroundTint="@color/button_blue"
-        android:backgroundTintMode="src_over"
-
-        android:text="@string/crud_farmaciawp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
-
-    <Button
         android:id="@+id/button3"
         android:layout_width="139dp"
         android:layout_height="58dp"
@@ -93,26 +77,10 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="139dp"
-        android:layout_height="58dp"
-        android:backgroundTint="@color/button_blue"
-        android:backgroundTintMode="src_over"
-        android:text="@string/ir_al_maps"
-
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.965" />
+        app:layout_constraintVertical_bias="0.91" />
 
     <TextClock
         android:id="@+id/textClock3"

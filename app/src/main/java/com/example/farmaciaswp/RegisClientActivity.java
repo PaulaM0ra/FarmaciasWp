@@ -61,16 +61,7 @@ public class RegisClientActivity extends AppCompatActivity {
             }
         });
 
-        // Agregar un botón que redirija a la actividad de pago con PayPal
-        Button payPalButton = findViewById(R.id.button);  // Usa el ID de tu botón
-        payPalButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Redirige al PayPalPaymentActivity
-                Intent intent = new Intent(RegisClientActivity.this, PayPalPaymentActivity.class);
-                startActivity(intent);  // Inicia la actividad de pago
-            }
-        });
+
     }
 
     private void saveClientData() {
