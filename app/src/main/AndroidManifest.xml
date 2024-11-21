@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -16,9 +17,9 @@
         android:theme="@style/Theme.FarmaciasWp"
         tools:targetApi="31">
         <activity
-            android:name=".CARRITO"
-            android:exported="false"
-            android:theme="@style/Theme.FarmaciasWp" />
+            android:name=".PayPalPaymentActivity"
+            android:exported="false" />
+
         <activity
             android:name=".CARRO"
             android:exported="false" />
@@ -48,9 +49,7 @@
         <activity
             android:name=".RegisClientActivity"
             android:exported="false" />
-        <activity
-            android:name=".CarStoreActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ProductActivity"
             android:exported="false" />

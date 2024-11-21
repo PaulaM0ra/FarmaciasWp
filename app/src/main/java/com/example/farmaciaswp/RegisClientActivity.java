@@ -41,14 +41,16 @@ public class RegisClientActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Este es el botón para registrar el cliente
         Button registerButton = findViewById(R.id.register_button);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveClientData();
+                saveClientData();  // Llama al método que guarda los datos del cliente
             }
         });
 
+        // Este es el botón para navegar a la actividad de catálogo de productos
         Button nextButton = findViewById(R.id.Button18);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +58,17 @@ public class RegisClientActivity extends AppCompatActivity {
                 Intent intent = new Intent(RegisClientActivity.this, Catalogo_Productos.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        // Agregar un botón que redirija a la actividad de pago con PayPal
+        Button payPalButton = findViewById(R.id.button);  // Usa el ID de tu botón
+        payPalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirige al PayPalPaymentActivity
+                Intent intent = new Intent(RegisClientActivity.this, PayPalPaymentActivity.class);
+                startActivity(intent);  // Inicia la actividad de pago
             }
         });
     }
@@ -96,4 +109,5 @@ public class RegisClientActivity extends AppCompatActivity {
         direccionEditText.setText(" Direccion");
         documentoEditText.setText("Documento");
         emailEditText.setText("Email");
-    }}
+    }
+}
